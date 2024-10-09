@@ -1,0 +1,31 @@
+#vieux{
+    width: 100%;
+}
+
+#containercatego{
+    background-color: #B4CBDC;
+}
+
+#containercatego h1{
+    margin-left: 165px;
+}
+
+#images-catego{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 0px 70px 20px;
+}
+
+#cardio{
+    width: 300px;
+    height: 260px;
+}
+#muscu{
+    width: 270px;
+    height: 260px;
+}
+#renfo{
+    width: 320px;
+    height: 260px;
+}
+
