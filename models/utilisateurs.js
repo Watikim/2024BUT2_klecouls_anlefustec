@@ -15,3 +15,5 @@ async function getUserById(id) {
         });
     });
 }
+
+module.exports = { getUserById };

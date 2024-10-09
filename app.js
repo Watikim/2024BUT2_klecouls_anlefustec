@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-const utilisateurs = require("./models/jnknf.js")
+const utilisateurs = require("./models/utilisateurs.js")
 
 
 app.set('view engine', 'ejs');
