@@ -14,6 +14,15 @@ app.get('/', (req, res) => {
 app.get('/catalogue', (req, res) => {
     res.render("catalogue");
 })
+app.get('/produit', (req, res) => {
+    res.render("produit");
+})
+app.get('/connexion', (req, res) => {
+    res.render("connexion");
+})
+app.get('/inscription', (req, res) => {
+    res.render("inscription");
+})
 
 app.get('/', async function (req, res) {
     try {

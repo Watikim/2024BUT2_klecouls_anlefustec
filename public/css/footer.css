@@ -1,4 +1,4 @@
-footer{
+footer {
     display: flex;
     justify-content: space-around;
     font-family: 'Bahnschrift';
@@ -6,11 +6,11 @@ footer{
     font-size: 0.9rem;
 }
 
-.footer-text:hover{
+.footer-text:hover {
     text-decoration: underline;
     cursor: pointer;
 }
 
-footer article{
-        padding: 30px 20px 30px 20px;
+footer article {
+    padding: 30px 20px 30px 20px;
 }
