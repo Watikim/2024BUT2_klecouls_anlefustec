@@ -1,3 +1,19 @@
+@font-face {
+    font-family: 'bahnschriftregular';
+    src: url('./fonts/bahnschrift_3-webfont.woff2') format('woff2'),
+         url('./fonts/bahnschrift_3-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+}
+
 header{
     background-color: #C3C637;
 }
@@ -5,3 +21,4 @@ header{
 #locfit-logo{
     
 }
+

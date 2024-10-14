@@ -1,0 +1,113 @@
+/* CATEGORIES DE MACHINES */
+
+#vieux{
+    width: 100%;
+}
+
+#containercatego{
+    background-color: #B4CBDC;
+}
+
+#containercatego h1{
+    padding-top: 80px;
+}
+
+.container h1{
+    margin: 80px 0 60px 165px;
+    font-family: 'Viga';
+}
+
+#images-catego{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 0px 70px 20px;
+}
+
+#images-catego img{
+    border-radius: 200px;
+    width: 300px;
+    height: 290px;
+}
+
+#images-catego img:hover{
+    opacity: .5;
+	-webkit-filter: blur(1.5px);
+	filter: blur(1.5px);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+
+/* PRODUITS PHARES */
+
+#containerphares{
+    margin: 100px 30px 100px 30px;
+}
+
+#imagesphares{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.articlesphares{
+    border: 1.5px solid black;
+    padding: 20px;
+}
+
+.articlesphares p:first-of-type{
+    font-size: 1.4rem;
+    font-family: 'Bahnschrift';
+    text-decoration: underline;
+    cursor: pointer;
+    text-align: center;
+}
+
+.articlesphares p:nth-of-type(2){
+    font-family: 'Viga';
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 80px;
+    margin-left: 25px;
+}
+
+.articlesphares p:nth-of-type(3), .articlesphares p:nth-of-type(4){
+    font-family: 'Bahnschrift';
+    text-decoration: underline;
+    cursor: pointer;
+    text-align: center;
+}
+
+.articlesphares p:nth-of-type(4){
+    font-size: 1.4rem;
+    background-color: #B4CBDC;
+    padding: 10px 0px 10px 0px;
+    margin-top: -3px;
+}
+
+.etoiles p:first-of-type{
+    font-size: 0.9rem;
+    margin-top: 0;
+    margin-left: 3px;
+    text-decoration: underline;
+    cursor: pointer;
+
+}
+
+.etoiles{
+    display: flex;
+    margin-left: 25px;
+}
+
+.imgmatos{
+    height: 260px;
+    width: 240px;
+}
+
+#tapis-course{
+    height: 260px;
+}
+
+.checked{
+    color: orange;
+}
+
