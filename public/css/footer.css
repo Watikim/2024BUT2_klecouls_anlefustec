@@ -1,0 +1,16 @@
+footer {
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Bahnschrift';
+    background-color: #C3C637;
+    font-size: 0.9rem;
+}
+
+.footer-text:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+footer article {
+    padding: 30px 20px 30px 20px;
+}
