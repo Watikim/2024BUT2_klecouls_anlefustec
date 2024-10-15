@@ -48,6 +48,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    margin-bottom: 100px;
 }
 .articlesphares{
     border: 1.5px solid black;
@@ -111,3 +112,8 @@
     color: orange;
 }
 
+/*filtre*/
+
+#filtre{
+    background-color: #B4CBDC;
+}
