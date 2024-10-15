@@ -1,0 +1,80 @@
+#produit{
+    display: flex;
+    align-items: center;
+    margin: 50px 200px 50px 315px;
+}
+
+#fleche{
+    height: 20px;
+    width: 20px;
+    margin-top: 15px;
+    padding-right: 6px;
+}
+
+#retour{
+    display: flex;
+}
+
+#leProduit img{
+    height: 400px;
+    width: 380px;
+    border: 1.5px solid black;
+    padding: 30px;
+    margin-top: 20px;
+}
+
+.typo{
+    font-family: 'Bahnschrift';
+}
+
+.title{
+    font-family: 'Viga';
+}
+
+#text{
+    padding: 20px;
+    padding-right: 250px;
+    margin-left: 30px;
+}
+
+#text h1{
+    font-size: 1.8rem;
+}
+
+#description{
+    text-align: justify;
+}
+
+#prix{
+    font-size: 1.2rem;
+    text-decoration: line-through;
+    margin-top: 35px;
+    margin-bottom: -20px;
+}
+
+.bouton{
+    font-size: 1rem;
+    background-color: #C3C637;
+    width: 140px;
+    padding: 2px;
+    margin-right: 195px;
+    text-align: center;
+    border-radius: 3px;
+    box-shadow: 1px 1px 2px grey;
+}
+
+#fiche{
+    font-size: 0.8rem;
+    text-decoration: underline;
+}
+
+#devis{
+    margin-top: -7px;
+    margin-bottom: -10px;
+}
+
+.star{
+    margin-left: 0px;
+    margin-top: -15px;
+}
+
