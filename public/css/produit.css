@@ -1,6 +1,7 @@
 #produit{
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     margin: 50px 200px 50px 315px;
 }
 
@@ -38,7 +39,6 @@
 
 #text{
     padding: 20px;
-    padding-right: 250px;
     margin-left: 30px;
 }
 
@@ -90,20 +90,40 @@
 #lescomm{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 .comm{
-    height: 200px;
+    height: auto;
     width: 1000px;
+    border: 3px solid #B4CBDC;
+    margin: 50px;
+    margin-bottom: 50px;
+    padding: 10px 0px 10px 20px;
+}
+
+.comm p{
+    font-family: 'Bahnschrift';
 }
 
 .section1{
     display: flex;
 }
 
+.section2{
+    margin-top: -35px;
+    margin-left: 5px;
+}
+.section2 h1{
+    font-family: 'Viga';
+    font-size: 1.8rem;
+    margin-bottom: -5px;
+}
+
 .imgcompte{
-    height: 60px;
-    width: 60px;
+    height: 80px;
+    width: 80px;
 }
 
 
