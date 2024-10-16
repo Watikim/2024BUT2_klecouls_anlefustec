@@ -116,6 +116,73 @@
 
 /*filtre*/
 
-#filtre{
+/* Filtre Container */
+#filtre {
     background-color: #B4CBDC;
+    padding: 20px;
+    width: 250px;
+}
+
+#filtre h1 {
+    font-family: 'Viga';
+    font-size: 1.8rem;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.filtre-item {
+    margin-bottom: 15px;
+}
+
+/* Dropdown Button */
+.dropdown-btn {
+    background-color: transparent;
+    border: none;
+    font-family: 'Bahnschrift';
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    text-align: left;
+    padding: 10px 0;
+    border-bottom: 1px solid #000;
+}
+
+.toggle-dropdown {
+    display: none;
+}
+
+.toggle-dropdown:checked + .dropdown-btn + .dropdown-content {
+    display: block;
+}
+
+/* Dropdown Content */
+.dropdown-content {
+    display: none;
+    padding-left: 10px;
+    font-family: 'Bahnschrift';
+    background-color: #F4F4F4;
+}
+
+.filtre-item ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.filtre-item li {
+    margin-bottom: 10px;
+}
+
+.filtre-item input {
+    margin-right: 10px;
+}
+
+/* Arrow Icon */
+.arrow {
+    transition: transform 0.3s;
+}
+
+.toggle-dropdown:checked + .dropdown-btn .arrow {
+    transform: rotate(180deg);
 }
