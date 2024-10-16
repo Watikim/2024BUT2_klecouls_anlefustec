@@ -61,6 +61,14 @@ app.get('/', async function (req, res) {
     }
 });
 
+app.use(function(req,res,next){
+    if(req.session.userId){
+        res.locals.isAuth = true;
+        res.locals.id = req.session.userId
+    }
+    next();
+})
+
 app.use((req, res) => {
     res.status(404).render("404");
     });
