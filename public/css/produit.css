@@ -13,6 +13,11 @@
 
 #retour{
     display: flex;
+    margin-top: 10px;
+    margin-bottom: -10px;
+}
+#retour p:hover{
+    text-decoration: underline;
 }
 
 #leProduit img{
@@ -55,14 +60,18 @@
 .bouton{
     font-size: 1rem;
     background-color: #C3C637;
-    width: 140px;
-    padding: 2px;
+    width: 155px;
+    padding: 3px;
     margin-right: 195px;
     text-align: center;
     border-radius: 3px;
     box-shadow: 1px 1px 2px grey;
 }
 
+.bouton img{
+    height: 15px;
+    width: 15px;
+}
 #fiche{
     font-size: 0.8rem;
     text-decoration: underline;
@@ -77,4 +86,5 @@
     margin-left: 0px;
     margin-top: -15px;
 }
+
 
