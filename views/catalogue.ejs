@@ -2,8 +2,83 @@
 
 <main>
     <div id="filtre"> 
-        <h1>Filtre</h1>
+        <h1>Filtres</h1>
 
+        <!-- Filter Type d'appareil -->
+        <div class="filtre-item">
+            <input type="checkbox" id="type-dappareil" class="toggle-dropdown">
+            <label for="type-dappareil" class="dropdown-btn">Type d'appareil <span class="arrow">&#9662;</span></label>
+            <div class="dropdown-content">
+                <ul>
+                    <li><input type="checkbox" id="tapis" name="tapis"> <label for="tapis">Tapis de course</label></li>
+                    <li><input type="checkbox" id="velo" name="velo"> <label for="velo">Vélo</label></li>
+                    <li><input type="checkbox" id="rameur" name="rameur"> <label for="rameur">Rameur</label></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Filter Niveau d'utilisation -->
+        <div class="filtre-item">
+            <input type="checkbox" id="niveau-utilisation" class="toggle-dropdown">
+            <label for="niveau-utilisation" class="dropdown-btn">Niveau d'utilisation <span class="arrow">&#9662;</span></label>
+            <div class="dropdown-content">
+                <ul>
+                    <li><input type="checkbox" id="debutant" name="debutant"> <label for="debutant">Débutant (12)</label></li>
+                    <li><input type="checkbox" id="intermediaire" name="intermediaire"> <label for="intermediaire">Intermédiaire (20)</label></li>
+                    <li><input type="checkbox" id="avance" name="avance"> <label for="avance">Avancé (10)</label></li>
+                    <li><input type="checkbox" id="pro" name="pro"> <label for="pro">Professionnel (13)</label></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Filter Environnement d'utilisation -->
+        <div class="filtre-item">
+            <input type="checkbox" id="env-utilisation" class="toggle-dropdown">
+            <label for="env-utilisation" class="dropdown-btn">Environnement d'utilisation <span class="arrow">&#9662;</span></label>
+            <div class="dropdown-content">
+                <ul>
+                    <li><input type="checkbox" id="interieur" name="interieur"> <label for="interieur">Intérieur</label></li>
+                    <li><input type="checkbox" id="exterieur" name="exterieur"> <label for="exterieur">Extérieur</label></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Filter Dimensions et espace -->
+        <div class="filtre-item">
+            <input type="checkbox" id="dim-espace" class="toggle-dropdown">
+            <label for="dim-espace" class="dropdown-btn">Dimensions et espace <span class="arrow">&#9662;</span></label>
+            <div class="dropdown-content">
+                <ul>
+                    <li><input type="checkbox" id="compact" name="compact"> <label for="compact">Compact</label></li>
+                    <li><input type="checkbox" id="large" name="large"> <label for="large">Large</label></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Filter Prix -->
+        <div class="filtre-item">
+            <input type="checkbox" id="prix" class="toggle-dropdown">
+            <label for="prix" class="dropdown-btn">Prix <span class="arrow">&#9662;</span></label>
+            <div class="dropdown-content">
+                <ul>
+                    <li><input type="checkbox" id="moins50" name="moins50"> <label for="moins50">Moins de 50€</label></li>
+                    <li><input type="checkbox" id="moins100" name="moins100"> <label for="moins100">50€ à 100€</label></li>
+                    <li><input type="checkbox" id="plus100" name="plus100"> <label for="plus100">Plus de 100€</label></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Filter Fonctionnalités spéciales -->
+        <div class="filtre-item">
+            <input type="checkbox" id="fonc-spec" class="toggle-dropdown">
+            <label for="fonc-spec" class="dropdown-btn">Fonctionnalités spéciales <span class="arrow">&#9662;</span></label>
+            <div class="dropdown-content">
+                <ul>
+                    <li><input type="checkbox" id="pliable" name="pliable"> <label for="pliable">Pliable</label></li>
+                    <li><input type="checkbox" id="connecte" name="connecte"> <label for="connecte">Connecté</label></li>
+                </ul>
+            </div>
+        </div>
     </div>
 
     <div id="containerphares" class="container">
