@@ -52,7 +52,7 @@ app.get('/inscription', (req, res) => {
 
 app.get('/', async function (req, res) {
     try {
-        const user = await utilisateurs.getUserById(2);
+        const user = await utilisateurs.getUserById(1);
         console.log(user)
         res.render('index',{ user});
     } catch (err) {
