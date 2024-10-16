@@ -87,4 +87,23 @@
     margin-top: -15px;
 }
 
+#lescomm{
+    display: flex;
+    flex-direction: column;
+}
+
+.comm{
+    height: 200px;
+    width: 1000px;
+}
+
+.section1{
+    display: flex;
+}
+
+.imgcompte{
+    height: 60px;
+    width: 60px;
+}
+
 
