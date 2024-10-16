@@ -52,6 +52,7 @@
 }
 
 .articlesphares {
+    margin-left: 70px;
     border: 1.5px solid black;
     padding: 20px;
 }
@@ -162,7 +163,7 @@
     display: none;
     padding-left: 10px;
     font-family: 'Bahnschrift';
-    background-color: #F4F4F4;
+    background-color: #B4CBDC;
 }
 
 .filtre-item ul {
@@ -185,4 +186,13 @@
 
 .toggle-dropdown:checked + .dropdown-btn .arrow {
     transform: rotate(180deg);
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
