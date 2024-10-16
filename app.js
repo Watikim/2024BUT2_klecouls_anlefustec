@@ -8,6 +8,7 @@ const utilisateurs = require("./models/utilisateurs.js")
 
 app.set('view engine', 'ejs');
 
+
 app.use(express.static('public'));
 
 app.use(express.urlencoded({extended: false }));
@@ -18,6 +19,21 @@ app.use(session({
     saveUninitialized: false
 }));
 
+app.use(function(req,res,next){
+    if(req.session.userId){
+        res.locals.isAuth = true;
+        res.locals.id = req.session.userId;
+        res.locals.prenom = req.session.prenom
+    }
+    else{
+        res.locals.isAuth = false;
+        res.locals.id = null;
+        res.locals.prenom = ""
+
+    }
+    next();
+    
+})
 
 app.get('/catalogue', (req, res) => {
     res.render("catalogue");
@@ -36,6 +52,7 @@ app.post('/connexion', async function (req, res){
 
     const user = await utilisateurs.checklogin(login);
     if (user && user.password == mdp){
+        req.session.prenom = user.prenom;
         req.session.userId = user.id;
         req.session.role = user.type_utilsateur;
         return res.redirect("/");
@@ -61,13 +78,8 @@ app.get('/', async function (req, res) {
     }
 });
 
-app.use(function(req,res,next){
-    if(req.session.userId){
-        res.locals.isAuth = true;
-        res.locals.id = req.session.userId
-    }
-    next();
-})
+
+
 
 app.use((req, res) => {
     res.status(404).render("404");
