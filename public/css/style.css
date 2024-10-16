@@ -188,7 +188,7 @@
     transform: rotate(180deg);
 }
 
-main{
+.cat{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
