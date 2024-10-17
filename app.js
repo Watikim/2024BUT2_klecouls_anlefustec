@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const session = require('express-session');
 const md5 = require('md5');
+const moment = require('moment');
 
 const utilisateurs = require("./models/utilisateurs.js")
 
@@ -56,7 +57,7 @@ app.post('/connexion', async function (req, res){
     if (user && user.password == mdp){
         req.session.prenom = user.prenom;
         req.session.userId = user.id;
-        req.session.role = user.type_utilsateur;
+        req.session.role = user.type_utilisateur;
         return res.redirect("/");
     }
     else{
