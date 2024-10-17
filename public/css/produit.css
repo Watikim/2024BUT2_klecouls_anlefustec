@@ -68,6 +68,10 @@
     box-shadow: 1px 1px 2px grey;
 }
 
+.bouton:hover{
+    cursor: pointer;
+}
+
 .bouton img{
     height: 15px;
     width: 15px;
@@ -122,6 +126,8 @@
         
 .comm p{
     font-family: 'Bahnschrift';
+    margin-left: 15px;
+    margin-right: 10px;
 }
 
 .section1{
@@ -141,6 +147,33 @@
 .imgcompte{
     height: 80px;
     width: 80px;
+}
+
+#repondre {
+    display: flex;
+    align-items: center;
+    border: 1px solid grey;
+    border-radius: 3px;
+    width: 80px;
+    padding: 5px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+#repondre:hover{
+    background-color: rgb(251, 251, 251);
+    cursor: pointer;
+}
+
+#repondre p {
+    font-size: 0.7rem;
+    margin: 0;
+}
+
+#repondre img {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px 0 3px;
 }
 
 
