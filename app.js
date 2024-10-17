@@ -23,12 +23,14 @@ app.use(function(req,res,next){
     if(req.session.userId){
         res.locals.isAuth = true;
         res.locals.id = req.session.userId;
-        res.locals.prenom = req.session.prenom
+        res.locals.prenom = req.session.prenom;
+        res.locals.Role = req.session.role
     }
     else{
         res.locals.isAuth = false;
         res.locals.id = null;
-        res.locals.prenom = ""
+        res.locals.prenom = "";
+        res.locals.Role = ""
 
     }
     next();
