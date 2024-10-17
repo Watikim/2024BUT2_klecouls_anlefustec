@@ -6,12 +6,15 @@
     </div>
 
     
-    <% if (isAuth){ %>
+    <% if (isAuth == true && Role == "client") { %>
+        <%- "<h1> Bonjour bienvenue sur ma page web client</h1>"%>
 
-    <% } %>
+    <%  }else if (isAuth == true && Role == "admin") { %>
+        <%- "<h1>Bonjour bienvenue sur ma page web admin</h1>" %>
+        <% } %>
 
-
-    <h1>Bonjour <%= prenom %>, bienvenue sur ma page web</h1>
+        <h2>Bonjour <%= prenom %>, bienvenue sur ma page web</h2>
+    
 
     <div id="containercatego" class="container">
         <h1>
