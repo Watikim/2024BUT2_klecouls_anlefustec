@@ -43,7 +43,7 @@
 }
 
 #text h1{
-    font-size: 1.8rem;
+    font-size: 1.95rem;
 }
 
 #description{
@@ -101,6 +101,12 @@
     margin: 50px;
     margin-bottom: 50px;
     padding: 10px 0px 10px 20px;
+}
+
+#commentairetitle{
+    font-family: 'Viga';
+    font-size: 1.95rem;
+    text-align: start;
 }
 
 .comm p{
