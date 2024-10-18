@@ -44,6 +44,9 @@ app.get('/catalogue', (req, res) => {
 app.get('/produit', (req, res) => {
     res.render("produit");
 })
+app.get('/compte', (req, res) => {
+    res.render("compte");
+})
 app.get('/calendrier', (req, res) => {
     res.render("agenda");
 })
