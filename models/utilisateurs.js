@@ -32,17 +32,17 @@ async function checklogin(login) {
     });
 }
 
-async function modifnom(nom) {
+async function modifnom(nom, login) {
     
-    sql = "UPDATE utilisateur SET nom = ?";
+    sql = "UPDATE utilisateur SET nom = ? WHERE login = ?";
     
     return new Promise((resolve, reject) => {
-        database.query(sql, [nom], (err, results) => {
+        database.query(sql, [nom, login],  (err, results) => {
 
             if (err) {
                 return reject(err);
             }
-            resolve(results[0]);
+            resolve(results);
 
         });
     });
