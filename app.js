@@ -48,6 +48,7 @@ app.get('/compte', (req, res) => {
     res.render("compte");
 })
 app.get('/calendrier', (req, res) => {
+    
     res.render("agenda");
 })
 app.get('/connexion', (req, res) => {
