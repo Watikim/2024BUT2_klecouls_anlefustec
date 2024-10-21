@@ -17,6 +17,8 @@
     width: 96vw;
     padding: 30px 25px 50px 25px;
     padding-left: 20px;
+    background-color: rgb(251, 251, 251);
+    border-radius: 10px;
 }
 
 #compte-photo div{
@@ -47,24 +49,39 @@
     display: flex;
     flex-direction: column;
     margin-top: 50px;
-    padding: 30px 100px 40px 500px;
+    padding: 30px 0px 40px 440px;
+    width: 45%;
 
 }
 
 .groupe-info{
     display: flex;
     margin-bottom: 20px;
+    justify-content: space-between;
+    background-color: rgb(249, 249, 249);
+    padding: 20px 60px 20px 60px;
+    border-radius: 10px;
 }
 
-.groupe-info h3{
-    margin-right: 100px;
-}
 
 .groupe-info p{
     padding-top: 4px;
 }
 
+.modif{
+    border: 1px solid rgb(122, 122, 122);
+    border-radius: 2px;
+    padding: 20px 10px 5px 10px;
+    color: rgb(122, 122, 122);
+}
+
+.modif:hover{
+    background-color: rgb(221, 221, 221);
+    cursor: pointer;
+}
+
 
 #suppression{
     margin-top: 75px;
+    margin-left: 250px;
 }
