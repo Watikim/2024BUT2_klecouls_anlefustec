@@ -68,20 +68,38 @@
     padding-top: 4px;
 }
 
-.modif{
-    border: 1px solid rgb(122, 122, 122);
+#modif{
+    border: 1px solid rgb(162, 162, 162);
     border-radius: 2px;
-    padding: 20px 10px 5px 10px;
-    color: rgb(122, 122, 122);
+    padding: 5px 10px 5px 10px;
+    color: rgb(93, 93, 93);
 }
 
-.modif:hover{
-    background-color: rgb(221, 221, 221);
+#modif:hover{
+    background-color: rgb(244, 244, 244);
     cursor: pointer;
 }
 
+#boutonModif{
+    display: flex;
+    margin-left: 20px;
+}
 
 #suppression{
+    display: flex;
+    justify-content: center;
     margin-top: 75px;
-    margin-left: 250px;
+    margin-left: 8px;
+}
+
+#boutonSupr{
+    border: 1px solid rgb(53, 53, 53);
+    border-radius: 2px;
+    padding: 5px 10px 5px 10px;
+    color: black;
+}
+
+#boutonSupr:hover{
+    cursor: pointer;
+    background-color: rgb(246, 246, 246);
 }
