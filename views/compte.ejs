@@ -6,8 +6,8 @@
     <section id="compte-photo" class="compte">
         <img src="/image/icone-compte.png">
         <div>
-            <h1>Jean Dupont</h1>
-            <p>Nom d'utilisateur : jdupont</p>
+            <h1><%= prenom %> <%= nom %></h1>
+            <p>Nom d'utilisateur : <%= login %></p>
 
         </div>
     </section>
@@ -15,27 +15,27 @@
     <section id="compte-infos" class="compte">
         <article class="groupe-info">
             <h3>Nom :</h3>
-            <p>Dupont</p>
+            <p><%= nom %></p>
             <p class="modif">Modifier</p>
         </article>
         <article class="groupe-info">
             <h3>Prenom :</h3>
-            <p>Jean</p>
+            <p><%= prenom %></p>
             <p class="modif">Modifier</p>
         </article>
         <article class="groupe-info">
             <h3>Date de naissance :</h3>
-            <p>07/02/2005</p>
+            <p><%= ddn %></p>
             <p class="modif">Modifier</p>
         </article>
         <article class="groupe-info">
             <h3>Mot de passe : </h3>
-            <p>123</p>
+            <p><%= password %></p>
             <p class="modif">Modifier</p>
         </article>
         <article class="groupe-info">
             <h3>Adresse e-mail :</h3>
-            <p>jeantily@gmail.com</p>
+            <p><%= email %></p>
             <p class="modif">Modifier</p>
         </article>
     

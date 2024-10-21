@@ -25,13 +25,25 @@ app.use(function(req,res,next){
         res.locals.isAuth = true;
         res.locals.id = req.session.userId;
         res.locals.prenom = req.session.prenom;
-        res.locals.Role = req.session.role
+        res.locals.Role = req.session.role;
+        res.locals.nom = req.session.nom;
+        res.locals.ddn = req.session.ddn;
+        res.locals.login = req.session.login;
+        res.locals.password = req.session.password;
+        res.locals.email = req.session.email
     }
     else{
         res.locals.isAuth = false;
         res.locals.id = null;
         res.locals.prenom = "";
-        res.locals.Role = ""
+        res.locals.Role = "";
+        res.locals.nom = "";
+        res.locals.ddn="";
+        res.locals.login="";
+        res.locals.password="";
+        res.locals.email=""
+
+
 
     }
     next();
@@ -65,6 +77,11 @@ app.post('/connexion', async function (req, res){
         req.session.prenom = user.prenom;
         req.session.userId = user.id;
         req.session.role = user.type_utilisateur;
+        req.session.nom = user.nom;
+        req.session.ddn = user.ddn;
+        req.session.login = user.login;
+        req.session.password = user.password;
+        req.session.email = user.email;
         return res.redirect("/");
     }
     else{
@@ -87,6 +104,8 @@ app.get('/', async function (req, res) {
         res.status(500).sen('Erreur lors de la récupération des données');
     }
 });
+
+
 
 
 

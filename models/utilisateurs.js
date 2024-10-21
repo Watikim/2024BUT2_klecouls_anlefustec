@@ -32,5 +32,21 @@ async function checklogin(login) {
     });
 }
 
-module.exports = { getUserById, checklogin };
+async function modifnom(nom) {
+    
+    sql = "UPDATE utilisateur SET nom = ?";
+    
+    return new Promise((resolve, reject) => {
+        database.query(sql, [nom], (err, results) => {
+
+            if (err) {
+                return reject(err);
+            }
+            resolve(results[0]);
+
+        });
+    });
+}
+
+module.exports = { getUserById, checklogin, modifnom };
 
