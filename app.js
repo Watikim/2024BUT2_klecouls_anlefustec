@@ -45,6 +45,7 @@ app.get('/produit', (req, res) => {
     res.render("produit");
 })
 app.get('/calendrier', (req, res) => {
+    
     res.render("agenda");
 })
 app.get('/connexion', (req, res) => {
