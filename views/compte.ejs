@@ -1,54 +1,128 @@
 <%- include('header'); -%>
 
-<main id="page-compte">
+    <head>
+        <style>
+            form {
+                display: flex;
+                flex-direction: column;
+            }
 
-<div id="lemain">
-    <section id="compte-photo" class="compte">
-        <img src="/image/icone-compte.png">
-        <div>
-            <h1><%= prenom %> <%= nom %></h1>
-            <p>Nom d'utilisateur : <%= login %></p>
+            input[type="text"] {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                margin: 10px 0;
+                padding: 5px;
+                background: #f7f7f7;
+            }
 
-        </div>
-    </section>
-    
-    <section id="compte-infos" class="compte">
-        <article class="groupe-info">
-            <h3>Nom :</h3>
-            <p><%= nom %></p>
-        </article>
-        <article class="groupe-info">
-            <h3>Prénom :</h3>
-            <p><%= prenom %></p>
-        </article>
-        <article class="groupe-info">
-            <h3>Date de naissance :</h3>
-            <p><%= ddn %></p>
-        </article>
-        <article class="groupe-info">
-            <h3>Mot de passe : </h3>
-            <p><%= password %></p>
-        </article>
-        <article class="groupe-info">
-            <h3>Adresse e-mail :</h3>
-            <p><%= email %></p>
-        </article>
-        <article id="boutonModif">
-            <button id="modif">Modifier mes informations</button>
-        </article>
-    
-        <div id="suppression">
-            <h3 id="boutonSupr">Supprimer mon compte</h3>
-        </div>
-    
-    
-    </section>
+            input[type="text"]:disabled {
+                border: 0;
+                background: none;
+            }
+        </style>
+        <script src="/scripts/snippet-javascript-console.min.js?v=2"></script>
+    </head>
 
-</div>
+    <body>
 
-</main>
+
+        <section>
+            <form class="js-edit">
+                <input type="text" name="nom" value=" <%= nom %>" disabled>
+                <input type="text" name="prenom" value=" <%= prenom %>" disabled>
+                <input type="text" name="ddn" value="<%= ddn %>" disabled>
+                <input type="text" name="ddn" value="<%= email %>" disabled>
+                <button class="update-btn">Update</button>
+                <button class="delete-btn">Delete</button>
+            </form>
+        </section>
 
 
 
+        <script type="text/javascript">
+            const section = document.querySelector('section');
+            const form = document.querySelector('.js-edit');
 
-<%- include('footer'); -%>
+            section.addEventListener('click', event => {
+                const { target } = event;
+                if (target.classList.contains('update-btn')) {
+                    for (const input of form.elements) {
+                        if (input.type === 'text') {
+                            input.disabled = !input.disabled;
+                        }
+                    }
+                }
+            });
+
+            form.addEventListener('submit', event => {
+                event.preventDefault();
+            });
+        </script>
+
+        <main id="page-compte">
+
+            <div id="lemain">
+                <section id="compte-photo" class="compte">
+                    <img src="/image/icone-compte.png">
+                    <div>
+                        <h1>
+                            <%= prenom %>
+                                <%= nom %>
+                        </h1>
+                        <p>Nom d'utilisateur : <%= login %>
+                        </p>
+
+                    </div>
+                </section>
+
+                <section id="compte-infos" class="compte">
+                    <article class="groupe-info">
+                        <h3>Nom :</h3>
+                        <p>
+                            <%= nom %>
+                        </p>
+                    </article>
+                    <article class="groupe-info">
+                        <h3>Prénom :</h3>
+                        <p>
+                            <%= prenom %>
+                        </p>
+                    </article>
+                    <article class="groupe-info">
+                        <h3>Date de naissance :</h3>
+                        <p>
+                            <%= ddn %>
+                        </p>
+                    </article>
+                    <article class="groupe-info">
+                        <h3>Mot de passe : </h3>
+                        <p>
+                            <%= password %>
+                        </p>
+                    </article>
+                    <article class="groupe-info">
+                        <h3>Adresse e-mail :</h3>
+                        <p>
+                            <%= email %>
+                        </p>
+                    </article>
+                    <article id="boutonModif">
+                        <button id="modif">Modifier mes informations</button>
+                    </article>
+
+                    <div id="suppression">
+                        <h3 id="boutonSupr">Supprimer mon compte</h3>
+                    </div>
+
+
+                </section>
+
+            </div>
+
+        </main>
+
+
+
+
+        <%- include('footer'); -%>
