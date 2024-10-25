@@ -61,9 +61,10 @@ app.get('/catalogue', (req, res) => {
 app.get('/produit', (req, res) => {
     res.render("produit");
 })
-
+app.get('/liste', (req, res) => {
+    res.render("liste");
+})
 app.get('/calendrier', (req, res) => {
-
     res.render("agenda");
 })
 
