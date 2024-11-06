@@ -2,13 +2,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: ;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+#liste h1{
+    margin-bottom: 50px;
+    font-family: 'Viga';
 }
 
 #composant{
     width: 85%;
     background-color: rgb(218, 218, 218);
     margin: 20px 20px 20px 20px;
+    font-family: 'Bahnschrift';
+
 }
 
 #categories{
