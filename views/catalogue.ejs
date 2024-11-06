@@ -86,9 +86,12 @@
             Nos machines de cardio-training
         </h1>
         <section id="imagesphares">
+            <% for (i=0; i<produits.length; i++){ %>
             <article class="articlesphares">
                 <img id="tapis-course" src="/image/tapis-de-course.jpg" alt="un tapis de course">
-                <p>Tapis de course multiusages</p>
+
+                    <p><%= produits[i].type %></p>
+            
                 <div class="etoiles">
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
@@ -101,6 +104,8 @@
                 <p>Demander un devis</p>
                 <p class="abc"><a href="/produit">Voir le produit</a></p>
             </article>
+            <%
+                } %>
 
             <article class="articlesphares">
                 <img id="escalier" class="imgmatos" src="/image/powerlift.jpg" alt="un escalier">

@@ -4,6 +4,7 @@ const session = require('express-session');
 const moment = require('moment');
 const controllerUtilisateur = require('./controllers/utilisateurs.js')
 const utilisateurs = require("./models/utilisateurs.js")
+const prod = require("./models/produits.js")
 
 
 
@@ -29,7 +30,6 @@ app.use(function(req,res,next){
         res.locals.nom = req.session.nom;
         res.locals.ddn = req.session.ddn;
         res.locals.login = req.session.login;
-        res.locals.password = req.session.password;
         res.locals.email = req.session.email
     }
     else{
@@ -40,7 +40,6 @@ app.use(function(req,res,next){
         res.locals.nom = "";
         res.locals.ddn="";
         res.locals.login="";
-        res.locals.password="";
         res.locals.email=""
 
 
@@ -55,8 +54,10 @@ app.use("/utilisateurs", controllerUtilisateur)
 
 
 
-app.get('/catalogue', (req, res) => {
-    res.render("catalogue");
+app.get('/catalogue', async (req, res) => {
+    const produits = await prod.getAllProducts()
+    console.log(produits);
+    res.render("catalogue", { produits });
 })
 app.get('/produit', (req, res) => {
     res.render("produit");
