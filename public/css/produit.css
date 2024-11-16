@@ -176,4 +176,8 @@
     margin: 0 5px 0 3px;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
 

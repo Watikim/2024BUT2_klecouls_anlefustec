@@ -1,0 +1,155 @@
+
+:root {
+	--c-theme-primary: #008ffd;
+	--c-theme-primary-accent: #cbe8ff;
+	--c-bg-primary: #d6dae0;
+	--c-bg-secondary: #eaebec;
+	--c-bg-tertiary: #fdfdfd;
+	--c-text-primary: #1f1f25;
+	--c-text-secondary: #999fa6;
+	--c-text-highlight: #ffffff;
+}
+
+body {
+	font-family: "Inter", sans-serif;
+}
+
+button {
+	font: inherit;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+	&:focus {
+		outline: 0;
+	}
+}
+
+.datepicker {
+    margin-top: 50px;
+    margin-bottom: 50px;
+	width: 95%;
+	max-width: 400px;
+	background-color: var(--c-bg-tertiary);
+	border-radius: 10px;
+	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+	padding: 1rem;
+    justify-items: center;
+    place-self: center; 
+}
+
+.datepicker-top {
+	margin-bottom: 1rem;
+}
+
+.btn-group {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 1rem;
+	margin-top: -0.5rem;
+}
+
+.tag {
+	margin-right: 0.5rem;
+	margin-top: 0.5rem;
+	border: 0;
+	background-color: var(--c-bg-secondary);
+	border-radius: 10px;
+	padding: 0.5em 0.75em;
+	font-weight: 600;
+	color: var(--c-text-primary);
+	transition: background-color 0.2s ease-in-out;
+}
+
+.tag:hover {
+	background-color: var(--c-theme-primary-accent);
+	color: var(--c-theme-primary);
+}
+
+.month-selector {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.arrow {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 0;
+	background-color: #fff;
+	border-radius: 12px;
+	width: 2.5rem;
+	height: 2.5rem;
+	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25), 0 0 10px 0 rgba(0, 0, 0, 0.15);
+	transition: background-color 0.2s ease-in-out, transform 0.1s;
+}
+
+.arrow:hover {
+	background-color: var(--c-theme-primary-accent);
+	transform: scale(1.1);
+}
+
+.month-name {
+    display: inline-block;
+    width: 190px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+	font-weight: 600;
+	font-size: 1.25rem;
+	color: var(--c-text-primary);
+}
+
+.datepicker-calendar {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	grid-row-gap: 1rem;
+}
+
+.day,
+.date {
+	justify-self: center;
+}
+
+.day {
+	color: var(--c-text-secondary);
+	font-size: 0.875em;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+.date {
+	border: 0;
+	padding: 0;
+	width: 2.5rem;
+	height: 2.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 6px;
+	font-weight: 600;
+	border: 2px solid transparent;
+	background-color: transparent;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.date:hover {
+	background-color: var(--c-theme-primary-accent);
+	color: var(--c-theme-primary);
+}
+
+.faded {
+	color: var(--c-text-secondary);
+}
+
+.current-day {
+	color: var(--c-text-highlight);
+	border-color: var(--c-theme-primary);
+	background-color: var(--c-theme-primary);
+
+}
+
+.current-day:hover {
+	background-color: var(--c-theme-primary-accent);
+	color: var(--c-theme-primary);
+}
