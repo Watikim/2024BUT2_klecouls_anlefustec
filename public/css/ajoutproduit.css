@@ -24,17 +24,22 @@
 
 #ajout div{
     height: 30px;
-    background-color: rgb(247, 247, 247);
 }
 
 .box{
     display: flex;
-    margin-left: 20px;
     flex-direction: column;
     width: 80%;
-    margin-bottom: 50px;
 }
 
-#box1{
+.titre-ajt{
+    margin-top: 20px;
+    margin-bottom: 5px;
 }
+
+.box1{
+    margin-top: 20px;
+    
+}
+
 

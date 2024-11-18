@@ -4,25 +4,31 @@
     <h1 id="title">AJOUTER UN PRODUIT</h1>
 
     <section id="ajout">
-        <article class="box" id="box1">
-            <p>Nom de l'article</p>
-            <div></div>
-            <p>Catégorie</p>
-            <div></div>
-        </article>
-        <article class="box" id="box2">
-            <p>Poids</p>
-            <div></div>
-            <p>Dimensions</p>
-            <div></div>
-            <p>Prix</p>
-            <div></div>
-        </article>
-        <article class="box" id="box3">
-            <p>Description</p>
-            <div></div>
-            <div></div>
-        </article>
+        <form class="box" id="box1" action="/ajt" method="post">
+            <label class= "titre-ajt" for="nom_article">Nom de l'article</label>
+            <input type="text" id="nom_article" name="nom_article">
+
+            <label  class="titre-ajt" for="categorie">Type</label>
+            <input type="text" id="categorie" name="categorie">
+
+            <label  class="titre-ajt" for="poids">Poids</label>
+            <input type="number" id="poids" name="poids">
+
+            <label  class="titre-ajt" for="dimensions">Dimensions</label>
+            <input type="text" id="dimensions" name="dimensions">
+
+            <label  class="titre-ajt" for="prix">Prix</label>
+            <input type="number" id="prix-ajt" name="prix" >  
+
+            <label  class="titre-ajt" for="description">Description</label>
+            <input type="text" id="description" name="description">
+
+            <button type="submit">Ajouter le produit</button>
+        </form>
+
+       
+
+        
     </section>
 
 </main>

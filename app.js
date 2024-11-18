@@ -52,6 +52,9 @@ app.use(function(req,res,next){
 
 app.use("/utilisateurs", controllerUtilisateur)
 
+//extraction des données du formulaire
+
+app.use(express.urlencoded({extended : false}))
 
 
 app.get('/catalogue', async (req, res) => {
