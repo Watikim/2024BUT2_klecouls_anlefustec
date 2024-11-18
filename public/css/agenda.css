@@ -1,17 +1,11 @@
-
-:root {
-	--c-theme-primary: #008ffd;
-	--c-theme-primary-accent: #cbe8ff;
-	--c-bg-primary: #d6dae0;
-	--c-bg-secondary: #eaebec;
-	--c-bg-tertiary: #fdfdfd;
-	--c-text-primary: #1f1f25;
-	--c-text-secondary: #999fa6;
-	--c-text-highlight: #ffffff;
-}
-
 body {
 	font-family: "Inter", sans-serif;
+}
+
+h1 {
+	padding-top: 15px;
+	display: flex;
+	justify-content: center;
 }
 
 button {
@@ -24,16 +18,16 @@ button {
 }
 
 .datepicker {
-    margin-top: 50px;
-    margin-bottom: 50px;
+	margin-top: 20px;
+	margin-bottom: 50px;
 	width: 95%;
 	max-width: 400px;
-	background-color: var(--c-bg-tertiary);
+	background-color: #fdfdfd;
 	border-radius: 10px;
 	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 10px 0 rgba(0, 0, 0, 0.1);
 	padding: 1rem;
-    justify-items: center;
-    place-self: center; 
+	justify-items: center;
+	place-self: center; 
 }
 
 .datepicker-top {
@@ -51,17 +45,17 @@ button {
 	margin-right: 0.5rem;
 	margin-top: 0.5rem;
 	border: 0;
-	background-color: var(--c-bg-secondary);
+	background-color: #eaebec;
 	border-radius: 10px;
 	padding: 0.5em 0.75em;
 	font-weight: 600;
-	color: var(--c-text-primary);
+	color: #1f1f25;
 	transition: background-color 0.2s ease-in-out;
 }
 
 .tag:hover {
-	background-color: var(--c-theme-primary-accent);
-	color: var(--c-theme-primary);
+	background-color: #cbe8ff;
+	color: #008ffd;
 }
 
 .month-selector {
@@ -84,19 +78,19 @@ button {
 }
 
 .arrow:hover {
-	background-color: var(--c-theme-primary-accent);
+	background-color: #cbe8ff;
 	transform: scale(1.1);
 }
 
 .month-name {
-    display: inline-block;
-    width: 190px;
-    padding-left: 10px;
-    padding-right: 10px;
-    text-align: center;
+	display: inline-block;
+	width: 190px;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: center;
 	font-weight: 600;
 	font-size: 1.25rem;
-	color: var(--c-text-primary);
+	color: #1f1f25;
 }
 
 .datepicker-calendar {
@@ -111,7 +105,7 @@ button {
 }
 
 .day {
-	color: var(--c-text-secondary);
+	color: #999fa6;
 	font-size: 0.875em;
 	font-weight: 500;
 	text-transform: uppercase;
@@ -134,22 +128,40 @@ button {
 }
 
 .date:hover {
-	background-color: var(--c-theme-primary-accent);
-	color: var(--c-theme-primary);
+	background-color: #cbe8ff;
+	color: #008ffd;
 }
 
 .faded {
-	color: var(--c-text-secondary);
+	color: #999fa6;
 }
 
-.current-day {
-	color: var(--c-text-highlight);
-	border-color: var(--c-theme-primary);
-	background-color: var(--c-theme-primary);
+/* Dates sélectionnées et plages */
+.range-start, .range-end {
+    background-color: #008ffd; /* Couleur principale */
+    color: #ffffff; /* Texte en blanc */
+    border-radius: 50%; /* Arrondi complet */
+}
 
+.in-range {
+    background-color: #cbe8ff; /* Couleur secondaire */
+    color: #008ffd; /* Texte principal */
+}
+
+/* Jour actuel */
+.current-day {
+    background-color: #008ffd; /* Couleur principale */
+    color: #ffffff; /* Texte en blanc */
+    border-color: #008ffd; /* Bordure de la même couleur */
 }
 
 .current-day:hover {
-	background-color: var(--c-theme-primary-accent);
-	color: var(--c-theme-primary);
+    background-color: #cbe8ff; /* Accentuation en hover */
+    color: #008ffd; /* Texte principal */
+}
+
+.selected {
+    background-color: #008ffd; /* Couleur de fond pour une date sélectionnée */
+    color: #ffffff; /* Couleur du texte */
+    border-radius: 50%; /* Rendre l'apparence plus marquée */
 }
