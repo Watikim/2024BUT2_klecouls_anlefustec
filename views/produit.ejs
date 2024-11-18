@@ -2,21 +2,18 @@
 <main>
     <article id="produit">
         <div id="leProduit">
-            <img src="./image/velo-biking.jpg" alt="velo d'appartement">
+            <img src="/image/<%= resultat.image %>">
         </div>
         <div id="text" style="width: 400px;">
-            <a href="./catalogue"><div id="retour">
-                <img src="./image/icone fleche.png" id="fleche">
+            <a href="/catalogue"><div id="retour">
+                <img src="/image/icone fleche.png" id="fleche">
                 <p class="typo">Retour</p>
             </div></a>
           
             <h1 class="title"><%= resultat.type %></h1>
-            <p class="typo" id="description" style="width: 400px;">Ceci est un vélo d'appartement de type spinning avec un cadre 
-                noir robuste, un volant d'inertie visible et des réglages de 
-                selle et de guidon. Il dispose également d'un support pour 
-                accessoires et d'un écran pour suivre les performances.</p>
-            <h2 class="title" id="prix">90€ / Mois</h2>
-            <h1 class="title">60€ / Mois</h1>
+            <p class="typo" id="description" style="width: 400px;"><%= resultat.description %></p>
+            <!-- <h2 class="title" id="prix"><%= resultat.prix_location + 34 %>€ / Mois</h2> -->
+            <h1 class="title"><%= resultat.prix_location %>€ / Mois</h1>
             <div class="etoiles star">
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
@@ -26,12 +23,10 @@
                 <p class="typo">(12)</p>
             </div>
             <p class="typo" id="fiche">Voir la fiche technique</p>
-            <a href="./calendrier">  
+            <a href="/calendrier">  
                 <p class="typo bouton" id="devis">Faire un devis</p>
             </a>
-          
-            <p class="typo bouton" id="ajtpanier"> <img src="./image/icone-panier.png"> Ajouter au panier</p> 
-            
+                      
         </div>
     </article>
 
@@ -42,7 +37,7 @@
         </div>
         <div class="comm">
             <section class="section1">
-                    <img src="./image/icone-compte.png" class="imgcompte">
+                    <img src="/image/icone-compte.png" class="imgcompte">
                 <section class="section2">
                     <h1>Pierre</h1>
                     <div class="etoiles star">
@@ -64,7 +59,7 @@
 
         <div class="comm">
             <section class="section1">
-                <img src="./image/icone-compte.png" class="imgcompte">
+                <img src="/image/icone-compte.png" class="imgcompte">
                 <section class="section2">
                     <h1>Kimberley</h1>
                     <div class="etoiles star">
@@ -86,7 +81,7 @@
 
         <div class="comm">
             <section class="section1">
-                    <img src="./image/icone-compte.png" class="imgcompte">
+                    <img src="/image/icone-compte.png" class="imgcompte">
                 <section class="section2">
                     <h1>Pierre</h1>
                     <div class="etoiles star">
