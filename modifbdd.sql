@@ -1,7 +1,7 @@
 alter table produit 
 Add nom VARCHAR(255);
 
-TRUNCATE TABLE materiel_sport;
+TRUNCATE TABLE produit;
 
 INSERT INTO produit (nom, type, description, marque, modele, prix_location, etat) 
 VALUES 

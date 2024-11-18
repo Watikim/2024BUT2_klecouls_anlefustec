@@ -5,6 +5,15 @@ const utilisateurs = require("../models/utilisateurs.js")
 
 router.post("/ajt", (req, res)=>{
 
-  console.log(req.body);
+  let nom_article = req.body.nom_article
+  let type = req.body.type
+  let description = req.body.description
+  let marque = req.body.marque
+  let model = req.body.model
+  let prix = req.body.prix
+  let image = req.body.image
+
     
 })
+
+module.exports = router;
