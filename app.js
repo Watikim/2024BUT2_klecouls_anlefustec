@@ -59,9 +59,6 @@ app.get('/catalogue', async (req, res) => {
     console.log(produits);
     res.render("catalogue", { produits });
 })
-app.get('/produit', (req, res) => {
-    res.render("produit");
-})
 app.get('/liste', (req, res) => {
     res.render("liste");
 })
@@ -71,6 +68,14 @@ app.get('/ajoutproduit', (req, res) => {
 app.get('/calendrier', (req, res) => {
     res.render("agenda");
 })
+
+app.get('/produit/:id', async function(req, res) {
+    let Id = req.params.id;
+    let resultat = await prod.getProductById(Id);
+    console.log(resultat);
+    res.render('produit', { resultat });
+});
+
 
 app.get('/', async function (req, res) {
     try {

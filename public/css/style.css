@@ -38,10 +38,10 @@
 }
 
 
-/* PRODUITS PHARES */
+/* PRODUITS DU CATALOGUE */
 
 #containerphares {
-    margin: 100px 30px 100px 30px;
+    margin: 50px 30px 100px 0px;
 }
 
 #imagesphares {
@@ -49,12 +49,14 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     margin-bottom: 100px;
+    margin-top: 100px;
 }
 
 .articlesphares {
     margin-left: 70px;
     border: 1.5px solid black;
     padding: 20px;
+    margin-bottom: 100px;
 }
 
 .articlesphares p:first-of-type {
@@ -62,7 +64,7 @@
     font-family: 'Bahnschrift';
     text-decoration: underline;
     cursor: pointer;
-    text-align: center;
+    margin-left: 25px;
 }
 
 .articlesphares p:nth-of-type(2) {
@@ -120,7 +122,7 @@
 /* Filtre Container */
 #filtre {
     background-color: #B4CBDC;
-    padding: 20px;
+    padding: 20px 40px 20px 40px;
     width: 250px;
 }
 
@@ -162,6 +164,7 @@
 .dropdown-content {
     display: none;
     padding-left: 10px;
+    margin-right: 20px;
     font-family: 'Bahnschrift';
     background-color: #B4CBDC;
 }
@@ -190,9 +193,4 @@
 
 .cat{
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: space-around;
-    justify-content: flex-start;
-    align-items: flex-start;
 }

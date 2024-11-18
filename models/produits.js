@@ -21,7 +21,7 @@ async function getProductById(id) {
     sql = "SELECT * FROM produit WHERE id=?";
     
     return new Promise((resolve, reject) => {
-        database.query(sql, id,(err, results) => {
+        database.query(sql, id, (err, results) => {
 
             if (err) {
                 return reject(err);
