@@ -42,8 +42,6 @@ app.use(function(req,res,next){
         res.locals.login="";
         res.locals.email=""
 
-
-
     }
     next();
     
@@ -68,10 +66,24 @@ app.get('/liste', (req, res) => {
 app.get('/ajoutproduit', (req, res) => {
     res.render("ajoutproduit");
 })
-app.get('/calendrier', (req, res) => {
-    res.render("agenda");
-})
+app.get('/calendrier/:id', async (req, res) => {
+    const productId = req.params.id;
 
+    try {
+        const produit = await prod.getProductWithDates(productId);
+
+        if (!produit) {
+            return res.status(404).send("Produit introuvable.");
+        }
+
+        res.render("agenda", {
+            produit,
+        });
+    } catch (err) {
+        console.error("Erreur :", err);
+        res.status(500).send("Erreur de récupération de données.");
+    }
+});
 app.get('/produit/:id', async function(req, res) {
     let Id = req.params.id;
     let resultat = await prod.getProductById(Id);

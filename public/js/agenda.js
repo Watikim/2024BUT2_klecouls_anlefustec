@@ -1,6 +1,8 @@
+// calendrier
 document.addEventListener("DOMContentLoaded", () => { 
     const monthName = document.querySelector(".month-name");
     const arrows = document.querySelectorAll(".arrow");
+    const dates = document.querySelectorAll(".date");
 
     const months = [
         "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", 
@@ -22,7 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const calendar = document.querySelector(".datepicker-calendar");
         const month = currentDate.getMonth();
         const year = currentDate.getFullYear();
-        
+
+        // Efface le contenu actuel
+        calendar.innerHTML = "";
+
         // Obtenir le premier jour et le nombre de jours dans le mois
         const firstDay = new Date(year, month, 1).getDay();
         const daysInMonth = new Date(year, month + 1, 0).getDate();
@@ -71,46 +76,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Gestion du clic pour sélectionner une plage de dates
     function handleDateClick(date) {
-    if (!selectedRange.start || (selectedRange.start && selectedRange.end)) {
-        // Si aucune plage ou une plage complète est sélectionnée
-        selectedRange = { start: date, end: null };
-    } else if (date < selectedRange.start) {
-        // Si la date cliquée est avant le début
-        selectedRange = { start: date, end: selectedRange.start };
-    } else {
-        // Sinon, définir comme fin de plage
-        selectedRange.end = date;
-    }
+        if (!selectedRange.start || (selectedRange.start && selectedRange.end)) {
+            // Si aucune plage ou une plage complète est sélectionnée
+            selectedRange = { start: date, end: null };
+        } else if (date < selectedRange.start) {
+            // Si la date cliquée est avant le début
+            selectedRange = { start: date, end: selectedRange.start };
+        } else {
+            // Sinon, définir comme fin de plage
+            selectedRange.end = date;
+        }
 
-    // Inclure le jour cliqué immédiatement
-    highlightRange();
+        highlightRange();
     }
 
     // Met en surbrillance la plage sélectionnée
     function highlightRange() {
         const allDates = document.querySelectorAll(".date");
-    
+
         allDates.forEach((button) => {
             const buttonDate = new Date(button.dataset.date);
             button.classList.remove("range-start", "range-end", "in-range");
-    
+
             if (selectedRange.start && +buttonDate === +selectedRange.start) {
                 button.classList.add("range-start");
-            }
+            } 
             if (selectedRange.end && +buttonDate === +selectedRange.end) {
                 button.classList.add("range-end");
             }
             if (
                 selectedRange.start &&
                 selectedRange.end &&
-                buttonDate >= selectedRange.start && // Inclut la date de début
-                buttonDate <= selectedRange.end      // Inclut la date de fin
+                buttonDate > selectedRange.start &&
+                buttonDate < selectedRange.end
             ) {
                 button.classList.add("in-range");
             }
         });
     }
-    
 
     // Navigation précédent/suivant
     arrows.forEach((arrow, index) => {
@@ -120,9 +123,8 @@ document.addEventListener("DOMContentLoaded", () => {
             generateCalendar();
         });
     });
-    
-    // Initialise la page
+
+
     updateMonthDisplay();
     generateCalendar();
 });
-
