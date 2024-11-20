@@ -77,43 +77,36 @@
                 </section>
 
                 <section id="compte-infos" class="compte">
-                    <article class="groupe-info">
-                        <h3>Nom :</h3>
-                        <p>
-                            <%= nom %>
-                        </p>
-                    </article>
-                    <article class="groupe-info">
-                        <h3>Prénom :</h3>
-                        <p>
-                            <%= prenom %>
-                        </p>
-                    </article>
-                    <article class="groupe-info">
-                        <h3>Date de naissance :</h3>
-                        <p>
-                            <%= ddn %>
-                        </p>
-                    </article>
-                    <article class="groupe-info">
-                        <h3>Mot de passe : </h3>
-                        <p>
-                            <%= password %>
-                        </p>
-                    </article>
-                    <article class="groupe-info">
-                        <h3>Adresse e-mail :</h3>
-                        <p>
-                            <%= email %>
-                        </p>
-                    </article>
-                    <article id="boutonModif">
-                        <button id="modif">Modifier mes informations</button>
-                    </article>
-
-                    <div id="suppression">
-                        <h3 id="boutonSupr">Supprimer mon compte</h3>
-                    </div>
+                    <form class="js-edit">
+                        <article class="groupe-info">
+                            <h3>Nom : </h3>
+                            <input type="text" name="nom" value="<%= nom %>" disabled>
+                        </article>
+                        <article class="groupe-info">
+                            <h3>Prénom : </h3>
+                            <input type="text" name="prenom" value=" <%= prenom %>" disabled>
+                        </article>
+                        <article class="groupe-info">
+                            <h3>Mot de passe : </h3>
+                            <p>
+                            </p>
+                        </article>
+                        <article class="groupe-info">
+                            <h3>Email : </h3>
+                            <input type="text" name="ddn" value="<%= email %>" disabled>
+                        </article>
+                        <article class="groupe-info">
+                            <h3>Date de naissance : </h3>
+                            <p> <%= ddn %></p>
+                            <inpu type="date" name="ddn" value="<%= ddn %>" disabled>
+                        </article>
+                        const ddn = "20/11/2024";
+                        const [day, month, year] = ddn.split('/');
+                        const formattedDdn = `${year}-${month}-${day}`; // Reformate en YYYY-MM-DD
+                        res.render('votreTemplate', { ddn: formattedDdn });
+                        <button class="update-btn">Modifier mes informations</button>
+                        <button class="delete-btn">Delete</button>
+                    </form>
 
 
                 </section>

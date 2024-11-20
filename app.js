@@ -59,6 +59,13 @@ app.get('/catalogue', async (req, res) => {
     const produits = await prod.getAllProducts()
     console.log(produits);
     res.render("catalogue", { produits });
+
+})
+app.get('/', async (req, res) => {
+    const produits = await prod.getAllProducts()
+    console.log(produits);
+    res.render('index', { produits });
+
 })
 app.get('/liste', (req, res) => {
     res.render("liste");
