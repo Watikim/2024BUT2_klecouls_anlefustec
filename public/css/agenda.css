@@ -136,32 +136,61 @@ button {
 	color: #999fa6;
 }
 
-/* Dates sélectionnées et plages */
+
 .range-start, .range-end {
-    background-color: #008ffd; /* Couleur principale */
-    color: #ffffff; /* Texte en blanc */
-    border-radius: 50%; /* Arrondi complet */
+    background-color: #008ffd; 
+    color: #ffffff;
+    border-radius: 50%; 
 }
 
 .in-range {
-    background-color: #cbe8ff; /* Couleur secondaire */
-    color: #008ffd; /* Texte principal */
+    background-color: #cbe8ff; 
+    color: #008ffd; 
 }
 
-/* Jour actuel */
 .current-day {
-    background-color: #008ffd; /* Couleur principale */
-    color: #ffffff; /* Texte en blanc */
-    border-color: #008ffd; /* Bordure de la même couleur */
+    background-color: #008ffd; 
+    color: #ffffff;
+    border-color: #008ffd;
 }
 
 .current-day:hover {
-    background-color: #cbe8ff; /* Accentuation en hover */
-    color: #008ffd; /* Texte principal */
+    background-color: #cbe8ff;
+    color: #008ffd; 
 }
 
 .selected {
-    background-color: #008ffd; /* Couleur de fond pour une date sélectionnée */
-    color: #ffffff; /* Couleur du texte */
-    border-radius: 50%; /* Rendre l'apparence plus marquée */
+    background-color: #008ffd;
+    color: #ffffff; 
+    border-radius: 50%; 
+}
+
+.date.start-loue {
+    background-color: #f5c6cb; 
+    color: #721c24;
+    border: 2px solid #f5a6a9;
+}
+
+.date.end-loue {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 2px dashed #f5a6a9;
+}
+
+.start-loue {
+    background-color: red;
+    color: white;
+    pointer-events: none; 
+}
+
+.end-loue {
+    background-color: darkred;
+    color: white;
+    pointer-events: none; 
+}
+
+.in-loue {
+    background-color: lightcoral;
+    color: white;
+    pointer-events: none; 
 }

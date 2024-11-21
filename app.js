@@ -73,7 +73,7 @@ app.get('/liste', (req, res) => {
 app.get('/ajoutproduit', (req, res) => {
     res.render("ajoutproduit");
 })
-app.get('/calendrier/:id', async (req, res) => {
+app.get('/calendrier/:id', async (req, res) => { 
     const productId = req.params.id;
 
     try {
@@ -83,6 +83,10 @@ app.get('/calendrier/:id', async (req, res) => {
             return res.status(404).send("Produit introuvable.");
         }
 
+        // Convertit les dates SQL en ISO 8601
+        produit.date_debut_loue = new Date(produit.date_debut_loue).toISOString().split("T")[0];
+        produit.date_fin_loue = new Date(produit.date_fin_loue).toISOString().split("T")[0];
+
         res.render("agenda", {
             produit,
         });
@@ -91,6 +95,7 @@ app.get('/calendrier/:id', async (req, res) => {
         res.status(500).send("Erreur de récupération de données.");
     }
 });
+
 app.get('/produit/:id', async function(req, res) {
     let Id = req.params.id;
     let resultat = await prod.getProductById(Id);
