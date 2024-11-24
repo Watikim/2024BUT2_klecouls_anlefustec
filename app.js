@@ -86,6 +86,7 @@ app.get('/calendrier/:id', async (req, res) => {
         // Convertit les dates SQL en ISO 8601
         produit.date_debut_loue = new Date(produit.date_debut_loue).toISOString().split("T")[0];
         produit.date_fin_loue = new Date(produit.date_fin_loue).toISOString().split("T")[0];
+        
 
         res.render("agenda", {
             produit,

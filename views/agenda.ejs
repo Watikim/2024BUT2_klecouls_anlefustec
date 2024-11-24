@@ -9,6 +9,7 @@
 <body>
     <%- include('header'); -%>
     <h1>Choisissez une plage disponible</h1>
+    
     <div class="datepicker">
         <!-- Barre de navigation mois/année -->
         <div class="datepicker-top">
@@ -25,15 +26,14 @@
 
         <!-- Conteneur du calendrier -->
         <div class="datepicker-calendar">
-            <span class="day">Lu</span>
-            <span class="day">Ma</span>
-            <span class="day">Me</span>
-            <span class="day">Je</span>
-            <span class="day">Ve</span>
-            <span class="day">Sa</span>
-            <span class="day">Di</span>
         </div>
     </div>
+
+    <div class="price-container">
+        <h2>Prix prévisionnel</h2>
+        <p id="price">Sélectionnez une plage pour voir le prix</p>
+    </div>
+    
     <%- include('footer'); -%>
 
     <script src="/js/agenda.js" defer></script>
@@ -42,9 +42,12 @@
 
 <script>
 
-document.addEventListener("DOMContentLoaded", () => { 
+document.addEventListener("DOMContentLoaded", () => {
     const monthName = document.querySelector(".month-name");
     const arrows = document.querySelectorAll(".arrow");
+    const priceDisplay = document.getElementById("price");
+
+    const pricePerDay = <%= produit.prix_location %>; 
 
     const months = [
         "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", 
@@ -58,10 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const dateDebutLoue = new Date("<%= produit.date_debut_loue %>");
     const dateFinLoue = new Date("<%= produit.date_fin_loue %>");
 
-    console.log("Date début loué :", dateDebutLoue);
-    console.log("Date fin loué :", dateFinLoue);
-
-
     // Affiche mois/année
     function updateMonthDisplay() {
         const month = currentDate.getMonth();
@@ -69,18 +68,15 @@ document.addEventListener("DOMContentLoaded", () => {
         monthName.textContent = `${months[month]} ${year}`;
     }
 
-    // Génère le calendrier avec des dates uniques
+    // Génère le calendrier
     function generateCalendar() {
         const calendar = document.querySelector(".datepicker-calendar");
         const month = currentDate.getMonth();
         const year = currentDate.getFullYear();
 
-        // Efface le contenu lorsque que l'on change de mois
-        calendar.innerHTML = "";
-
         // Obtenir le premier jour
         const firstDay = new Date(year, month, 1).getDay();
-        // Obtenir le nombre de jour dans le mois
+        // Obtenir le nombre de jours dans le mois
         const daysInMonth = new Date(year, month + 1, 0).getDate();
 
         // Obtenir le nombre de jours du mois précédent
@@ -112,65 +108,62 @@ document.addEventListener("DOMContentLoaded", () => {
         highlightRange();
     }
 
-    // Format la date en YYYY-MM-DD
+    // Formate en YYYY-MM-DD
     function formatDateLocal(date) {
-    const year = date.getFullYear();
-    // PadStart permet de convertir en chaîne
-    const month = String(date.getMonth() + 1).padStart(2, "0");
-    const day = String(date.getDate()).padStart(2, "0");
-    return `${year}-${month}-${day}`;
-}
-
-function createDateButton(date, faded) {
-    const button = document.createElement("button");
-    button.classList.add("date");
-    if (faded) button.classList.add("faded");
-    button.textContent = date.getDate();
-    button.dataset.date = formatDateLocal(date);
-
-    // Comparaison avec les dates louées
-    if (formatDateLocal(date) === formatDateLocal(dateDebutLoue)) {
-        button.classList.add("start-loue");
-    }
-    if (formatDateLocal(date) === formatDateLocal(dateFinLoue)) {
-        button.classList.add("end-loue");
-    }
-    if (date > dateDebutLoue && date < dateFinLoue) {
-        button.classList.add("in-loue");
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const day = String(date.getDate()).padStart(2, "0");
+        return `${year}-${month}-${day}`;
     }
 
-    // Gestion du clic pour la sélection
-    button.addEventListener("click", () => handleDateClick(date));
-    return button;
-}
+    function createDateButton(date, faded) {
+        const button = document.createElement("button");
+        button.classList.add("date");
+        if (faded) button.classList.add("faded");
+        button.textContent = date.getDate();
+        button.dataset.date = formatDateLocal(date);
 
-    
+        // Comparaison avec les dates louées
+        if (formatDateLocal(date) === formatDateLocal(dateDebutLoue)) {
+            button.classList.add("start-loue");
+        }
+        if (formatDateLocal(date) === formatDateLocal(dateFinLoue)) {
+            button.classList.add("end-loue");
+        }
+        if (date > dateDebutLoue && date < dateFinLoue) {
+            button.classList.add("in-loue");
+        }
 
-// Gestion du clic pour sélectionner une plage de dates
-function handleDateClick(date) {
-    if (!selectedRange.start || (selectedRange.start && selectedRange.end)) {
-        // Si aucune plage ou plage complète est sélectionnée
-        selectedRange = { start: date, end: null };
-    } else if (date < selectedRange.start) {
-        // Si la date cliquée est avant le début
-        selectedRange = { start: date, end: selectedRange.start };
-    } else {
-        // Sinon, définir comme fin de plage
-        selectedRange.end = date;
+        button.addEventListener("click", () => handleDateClick(date));
+        return button;
     }
 
-    highlightRange();
-}
+    // Gestion du clic pour sélectionner une plage de dates
+    function handleDateClick(date) {
+        if (!selectedRange.start || (selectedRange.start && selectedRange.end)) {
+            // Si aucune plage ou plage complète est sélectionnée
+            selectedRange = { start: date, end: null };
+        } else if (date < selectedRange.start) {
+            // Si la date cliquée est avant le début
+            selectedRange = { start: date, end: selectedRange.start };
+        } else {
+            // Sinon, définir comme fin de plage
+            selectedRange.end = date;
+        }
 
-    // Met en couleur bleu la plage sélectionnée
+        highlightRange();
+        updatePrice();
+    }
+
+    // Met en couleur la plage sélectionnée
     function highlightRange() {
-
         const allDates = document.querySelectorAll(".date");
 
         allDates.forEach((button) => {
             const buttonDate = new Date(button.dataset.date);
             button.classList.remove("range-start", "range-end", "in-range");
 
+            // Plage sélectionnée
             if (selectedRange.start && +buttonDate === +selectedRange.start) {
                 button.classList.add("range-start");
             } 
@@ -188,6 +181,52 @@ function handleDateClick(date) {
         });
     }
 
+    function updatePrice() {
+    if (selectedRange.start && selectedRange.end) {
+        let days = 0;
+        let currentDate = new Date(selectedRange.start);
+
+        // Compte le nombre de jours entre la plage sélectionnée
+        while (currentDate <= selectedRange.end) {
+            days++;
+            currentDate.setDate(currentDate.getDate() + 1);
+        }
+
+        let totalPrice = days * pricePerDay; // Prix total en fonction des jours
+
+        // Applique les règles de tarif à partir du 4ème jour
+        let paidDays = Math.max(0, days - 3); // Les 3 premiers jours sont gratuits
+
+        // Application des tarifs dégressifs pour les jours payants
+        if (paidDays > 0) {
+            if (paidDays <= 7) {
+                totalPrice += paidDays * pricePerDay * 0.04; // 4% pour 3 à 7 jours
+            } else if (paidDays <= 14) {
+                totalPrice += (7 * pricePerDay * 0.04) + ((paidDays - 7) * pricePerDay * 0.02); // 4% puis 2% pour 7 à 14 jours
+            } else if (paidDays <= 30) {
+                totalPrice += (7 * pricePerDay * 0.04) + (7 * pricePerDay * 0.02) + ((paidDays - 14) * pricePerDay * 0.01); // 4%, 2%, puis 1% pour 14 à 30 jours
+            }
+        }
+
+        // Réduction de 10% si durée > 7 jours
+        if (days > 7) {
+            totalPrice *= 0.9; 
+        }
+
+        // Arrondi à 2 décimale les centimes
+        totalPrice = totalPrice.toFixed(2);
+
+        // Affichage du prix
+        priceDisplay.textContent = `Prix prévisionnel : ${totalPrice}€ (${days} jours au total)`;
+    } else {
+        priceDisplay.textContent = "Sélectionnez une plage pour voir le prix";
+    }
+}
+
+
+
+
+    
     // Navigation précédent/suivant
     arrows.forEach((arrow, index) => {
         arrow.addEventListener("click", () => {
@@ -200,6 +239,7 @@ function handleDateClick(date) {
     updateMonthDisplay();
     generateCalendar();
 });
+
 
     
 
