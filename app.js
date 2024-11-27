@@ -73,6 +73,7 @@ app.get('/liste', (req, res) => {
 app.get('/ajoutproduit', (req, res) => {
     res.render("ajoutproduit");
 })
+
 app.get('/calendrier/:id', async (req, res) => { 
     const productId = req.params.id;
 

@@ -31,7 +31,11 @@
 
     <div class="price-container">
         <h2>Prix prévisionnel</h2>
-        <p id="price">Sélectionnez une plage pour voir le prix</p>
+        <p id="price">Sélectionnez une plage</p>
+        <div class="button-container">
+            <button id="back-home-btn" style="display: none;">Valider</button>
+        </div>
+        
     </div>
     
     <%- include('footer'); -%>
@@ -48,6 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const priceDisplay = document.getElementById("price");
 
     const pricePerDay = <%= produit.prix_location %>; 
+
+    const backHomeBtn = document.getElementById("back-home-btn");
 
     const months = [
         "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", 
@@ -140,14 +146,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Gestion du clic pour sélectionner une plage de dates
     function handleDateClick(date) {
+        // Si aucune plage ou si la plage est déjà complète, réinitialise
         if (!selectedRange.start || (selectedRange.start && selectedRange.end)) {
-            // Si aucune plage ou plage complète est sélectionnée
             selectedRange = { start: date, end: null };
+
+          // Si la date cliquée est avant le début, la définir comme début
         } else if (date < selectedRange.start) {
-            // Si la date cliquée est avant le début
+            
             selectedRange = { start: date, end: selectedRange.start };
+        
+          // Sinon, définir comme fin de plage
         } else {
-            // Sinon, définir comme fin de plage
+          
             selectedRange.end = date;
         }
 
@@ -157,84 +167,110 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Met en couleur la plage sélectionnée
     function highlightRange() {
-        const allDates = document.querySelectorAll(".date");
+    const allDates = document.querySelectorAll(".date");
 
-        allDates.forEach((button) => {
-            const buttonDate = new Date(button.dataset.date);
-            button.classList.remove("range-start", "range-end", "in-range");
+    allDates.forEach((button) => {
+        const buttonDate = new Date(button.dataset.date); 
+        button.classList.remove("range-start", "range-end", "in-range"); // On rénitialise
 
-            // Plage sélectionnée
-            if (selectedRange.start && +buttonDate === +selectedRange.start) {
-                button.classList.add("range-start");
-            } 
-            if (selectedRange.end && +buttonDate === +selectedRange.end) {
-                button.classList.add("range-end");
-            }
-            if (
-                selectedRange.start &&
-                selectedRange.end &&
-                buttonDate > selectedRange.start &&
-                buttonDate < selectedRange.end
-            ) {
-                button.classList.add("in-range");
-            }
-        });
-    }
-
-    function updatePrice() {
-    if (selectedRange.start && selectedRange.end) {
-        let days = 0;
-        let currentDate = new Date(selectedRange.start);
-
-        // Compte le nombre de jours entre la plage sélectionnée
-        while (currentDate <= selectedRange.end) {
-            days++;
-            currentDate.setDate(currentDate.getDate() + 1);
+        // Ajouter la classe pour le début de la plage
+        if (selectedRange.start && buttonDate.getTime() === selectedRange.start.getTime()) {
+            button.classList.add("range-start");
         }
 
-        let totalPrice = days * pricePerDay; // Prix total en fonction des jours
-
-        // Applique les règles de tarif à partir du 4ème jour
-        let paidDays = Math.max(0, days - 3); // Les 3 premiers jours sont gratuits
-
-        // Application des tarifs dégressifs pour les jours payants
-        if (paidDays > 0) {
-            if (paidDays <= 7) {
-                totalPrice += paidDays * pricePerDay * 0.04; // 4% pour 3 à 7 jours
-            } else if (paidDays <= 14) {
-                totalPrice += (7 * pricePerDay * 0.04) + ((paidDays - 7) * pricePerDay * 0.02); // 4% puis 2% pour 7 à 14 jours
-            } else if (paidDays <= 30) {
-                totalPrice += (7 * pricePerDay * 0.04) + (7 * pricePerDay * 0.02) + ((paidDays - 14) * pricePerDay * 0.01); // 4%, 2%, puis 1% pour 14 à 30 jours
-            }
+        // Ajouter la classe pour la fin de la plage
+        // Bug ici, ne met pas en surbrillance le dernier jour
+        if (selectedRange.end && buttonDate.getTime() === selectedRange.end.getTime()) {
+            button.classList.add("range-end");
         }
 
-        // Réduction de 10% si durée > 7 jours
-        if (days > 7) {
-            totalPrice *= 0.9; 
+        // Ajouter la classe pour les dates intermédiaires
+        if ( selectedRange.start && selectedRange.end && buttonDate.getTime() >= selectedRange.start.getTime() && buttonDate.getTime() <= selectedRange.end.getTime() ) {
+            button.classList.add("in-range");
         }
-
-        // Arrondi à 2 décimale les centimes
-        totalPrice = totalPrice.toFixed(2);
-
-        // Affichage du prix
-        priceDisplay.textContent = `Prix prévisionnel : ${totalPrice}€ (${days} jours au total)`;
-    } else {
-        priceDisplay.textContent = "Sélectionnez une plage pour voir le prix";
-    }
+    });
 }
 
 
+    
+    function updatePrice() {
+        if (selectedRange.start && selectedRange.end) {
+            let days = 0;
+            let currentDate = new Date(selectedRange.start);
 
+            // Parcours des jours de la plage
+            while (currentDate <= selectedRange.end) {
+                if (currentDate < dateDebutLoue || currentDate > dateFinLoue) {
+                    days++;
+                }
+                currentDate.setDate(currentDate.getDate() + 1);
+            }
+
+
+            // Calcul du prix
+
+            let totalPrice = pricePerDay; // Coût fixe
+            
+            if (days > 3) {
+                const extraDays = days - 3;
+
+                if (extraDays <= 4) {
+                    // Jours 4 à 7 inclus : 4 % + prix fixe
+                    totalPrice += extraDays * (pricePerDay + pricePerDay * 0.04);
+                } 
+                else if (extraDays <= 11) {
+                    // Jours 8 à 14 inclus : 4 % pour les 4 premiers jours, puis 2 % pour les suivants
+                    totalPrice += 4 * (pricePerDay + pricePerDay * 0.04); // Jours 4 à 7
+                    totalPrice += (extraDays - 4) * (pricePerDay + pricePerDay * 0.02); // Jours 8 à 14
+                } 
+                else {
+                    // Jours 15+ : 4 % pour 4 jours, 2 % pour 7 jours, 1 % pour les suivants
+                    totalPrice += 4 * (pricePerDay + pricePerDay * 0.04); // Jours 4 à 7
+                    totalPrice += 7 * (pricePerDay + pricePerDay * 0.02); // Jours 8 à 14
+                    totalPrice += (extraDays - 11) * (pricePerDay + pricePerDay * 0.01); // Jours 15+
+                }
+            }
+
+            // Affichage du prix
+            totalPrice = Math.floor(totalPrice * 100) / 100; // Arrondi à l'avantage du client
+            priceDisplay.textContent = `Prix prévisionnel : ${totalPrice.toFixed(2)}€ (${days} jours)`;
+
+            // Affiche le bouton si une plage est choisie
+            backHomeBtn.style.display = "block";
+        } else {
+            priceDisplay.textContent = "Sélectionnez une plage";
+            backHomeBtn.style.display = "none";
+        }
+    }
+
+    // Redirection au clic sur le bouton
+    backHomeBtn.addEventListener("click", () => {
+        window.location.href = "/"; // Redirige vers la page d'accueil
+    });
 
     
     // Navigation précédent/suivant
     arrows.forEach((arrow, index) => {
-        arrow.addEventListener("click", () => {
-            currentDate.setMonth(currentDate.getMonth() + (index === 0 ? -1 : 1));
-            updateMonthDisplay();
-            generateCalendar();
-        });
+    arrow.addEventListener("click", () => {
+        // Si flèche gauche on recule d'un mois
+        if (index === 0) {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+        // Si flèche droite on avance d'un mois
+        } else {
+            currentDate.setMonth(currentDate.getMonth() + 1); 
+        }
+
+        updateMonthDisplay();
+
+        // On efface les anciennes dates avant de générer un nouveau calendrier
+        const calendar = document.querySelector(".datepicker-calendar");
+        calendar.innerHTML = "";
+
+        generateCalendar();
     });
+});
+
+
 
     updateMonthDisplay();
     generateCalendar();

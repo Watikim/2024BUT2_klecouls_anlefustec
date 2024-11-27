@@ -52,5 +52,24 @@ async function getProductWithDates(id) {
 }
 
 
-module.exports = { getAllProducts, getProductById, getProductWithDates };
+// Fonction pour ajouter un produit
+async function addProduct(nom_article, type, description, marque, model, prix, image) {
+    const sql = `
+      INSERT INTO produit (nom_article, type, description, marque, modele, prix, image)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+    `;
+  
+    return new Promise((resolve, reject) => {
+      database.query(sql, [nom_article, type, description, marque, model, prix, image], (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        resolve(results);
+      });
+    });
+  }
+  
+  
+  
+  module.exports = { addProduct, getAllProducts, getProductById, getProductWithDates };
 
