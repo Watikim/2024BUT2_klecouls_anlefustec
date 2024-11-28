@@ -27,18 +27,6 @@
     <body>
 
 
-        <section>
-            <form class="js-edit">
-                <input type="text" name="nom" value="<%= nom %>" disabled>
-                <input type="text" name="prenom" value=" <%= prenom %>" disabled>
-                <input type="text" name="ddn" value="<%= ddn %>" disabled>
-                <input type="text" name="ddn" value="<%= email %>" disabled>
-                <button class="update-btn">Update</button>
-                <button class="delete-btn">Delete</button>
-            </form>
-        </section>
-
-
 
         <script type="text/javascript">
             const section = document.querySelector('section');
@@ -58,6 +46,7 @@
             form.addEventListener('submit', event => {
                 event.preventDefault();
             });
+
         </script>
 
         <main id="page-compte">
@@ -84,12 +73,11 @@
                         </article>
                         <article class="groupe-info">
                             <h3>Prénom : </h3>
-                            <input type="text" name="prenom" value=" <%= prenom %>" disabled>
+                            <input type="text" name="prenom" value="<%= prenom %>" disabled>
                         </article>
                         <article class="groupe-info">
                             <h3>Mot de passe : </h3>
-                            <p>
-                            </p>
+                            <input type="text" name="ddn" value="" disabled>
                         </article>
                         <article class="groupe-info">
                             <h3>Email : </h3>
@@ -97,13 +85,8 @@
                         </article>
                         <article class="groupe-info">
                             <h3>Date de naissance : </h3>
-                            <p> <%= ddn %></p>
-                            <inpu type="date" name="ddn" value="<%= ddn %>" disabled>
+                            <input type="text" name="ddn" value="<%= ddn %>" disabled>
                         </article>
-                        const ddn = "20/11/2024";
-                        const [day, month, year] = ddn.split('/');
-                        const formattedDdn = `${year}-${month}-${day}`; // Reformate en YYYY-MM-DD
-                        res.render('votreTemplate', { ddn: formattedDdn });
                         <button class="update-btn">Modifier mes informations</button>
                         <button class="delete-btn">Delete</button>
                     </form>
