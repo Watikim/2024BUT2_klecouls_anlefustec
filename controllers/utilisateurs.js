@@ -35,9 +35,7 @@ router.post('/connexion', async function (req, res){
 
 
 
-router.get('/inscription', (req, res) => {
-    res.render("inscription");
-})
+
 
 router.get('/compte', (req, res) => {
     res.render("compte");

@@ -60,4 +60,6 @@ async function addProduct(nom_article, type, description, marque, model, prix, i
 }
 
 
-module.exports = { addProduct, getAllProducts, getProductById, getProductWithDates };
+
+
+module.exports = { addProduct, getAllProducts, getProductById, getProductWithDates};

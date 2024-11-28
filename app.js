@@ -1,16 +1,17 @@
 const express = require('express');
 const app = express();
 const session = require('express-session');
+const md5 = require('md5');
 const controllerUtilisateur = require('./controllers/utilisateurs.js');
 const utilisateurs = require("./models/utilisateurs.js");
 const prod = require("./models/produits.js");
 const inscriptionRouter = require("./controllers/inscription.js");
-const ajouterRouter = require("./controllers/inscription.js");
-const { addProduct } = require("./models/produits.js"); // Correction de l'importation
+const { addProduct } = require("./models/produits.js");
+const { addUtilisateur } = require("./models/utilisateurs.js"); // Correction de l'importation
 
 
 app.use("/inscription", inscriptionRouter);
-app.use("/ajouter", ajouterRouter);
+
 
 
 app.set('view engine', 'ejs');
@@ -27,7 +28,7 @@ app.use(session({
 
 app.use("/utilisateurs", controllerUtilisateur);
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     if (req.session.userId) {
         res.locals.isAuth = true;
         res.locals.id = req.session.userId;
@@ -72,6 +73,45 @@ app.post("/ajt", (req, res) => {
         });
 });
 
+app.get("/inscription", function (req, res) {
+  res.render("inscription");
+});
+
+app.post("/nouvutilisateur", (req, res) => {
+    let nouv_login = req.body.nouv_login;
+    let nouv_password = req.body.nouv_password;
+    let nouv_prenom = req.body.nouv_prenom;
+    let nouv_nom = req.body.nouv_nom;
+    let nouv_ddn = new Date(req.body.nouv_ddn);    
+    let nouv_email = req.body.nouv_email;
+
+
+
+
+    nouv_password = md5(nouv_password);
+
+    function getAge(dateNaissance) {
+        let diff = Date.now() - dateNaissance.getTime();
+        let ageDate = new Date(diff);
+        return Math.abs(ageDate.getUTCFullYear() - 1970);
+    }
+
+    if (getAge(nouv_ddn) > 18) {
+        addUtilisateur(nouv_login, nouv_password, nouv_nom, nouv_prenom, nouv_ddn, nouv_email)
+            .then(() => {
+                console.log("Utilisateur ajouté avec succès");
+                res.redirect("/");
+            }).catch((err) => {
+                console.error("Erreur lors de l'ajout de l'utilisateur :", err);
+                res.status(500).send("Erreur lors de l'ajout de l'utilisateur");
+            });
+    }
+    else {
+        res.render("inscription", {error: "Vous devez avoir 18 ans pour vous inscrire." });
+    }
+   
+}
+);
 
 
 
@@ -123,7 +163,7 @@ app.get('/calendrier/:id', async (req, res) => {
     }
 });
 
-app.get('/produit/:id', async function(req, res) {
+app.get('/produit/:id', async function (req, res) {
     let Id = req.params.id;
     let resultat = await prod.getProductById(Id);
     console.log(resultat);

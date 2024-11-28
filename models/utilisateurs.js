@@ -48,7 +48,22 @@ async function modifnom(nom, login) {
     });
 }
 
+async function addUtilisateur(nouv_login, nouv_password, nouv_nom, nouv_prenom, nouv_ddn, nouv_email) {
+    const sql = `
+      INSERT INTO utilisateur (login, password, nom, prenom, ddn, email)
+      VALUES (?, ?, ?, ?, ?, ?)
+    `;
+    
+    return new Promise((resolve, reject) => {
+        database.query(sql, [nouv_login, nouv_password, nouv_nom, nouv_prenom, nouv_ddn, nouv_email], (err, results) => {
+            if (err) {
+                return reject(err);
+            }
+            resolve(results);
+        });
+    });
+}
 
 
-module.exports = { getUserById, checklogin, modifnom};
+module.exports = { getUserById, checklogin, modifnom, addUtilisateur};
 
