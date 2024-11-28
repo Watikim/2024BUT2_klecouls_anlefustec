@@ -6,7 +6,7 @@ const utilisateurs = require("./models/utilisateurs.js");
 const prod = require("./models/produits.js");
 const inscriptionRouter = require("./controllers/inscription.js");
 const ajouterRouter = require("./controllers/inscription.js");
-const { addProduct } = require("./models/produits.js"); // Correction de l'importation
+const { addProduct } = require("./models/produits.js");
 
 
 app.use("/inscription", inscriptionRouter);
