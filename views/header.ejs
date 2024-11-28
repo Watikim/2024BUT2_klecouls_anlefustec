@@ -62,12 +62,23 @@
         </div>
 
 
-        <!--<% if (isAuth==true && Role== "client" ) { %>
+        <% if (isAuth==false) { %>
             <div class="icones">
                 <img class="icone" src="/image/icone-loca.png" alt="icone de localisation">
                 <img class="icone" id="panier" src="/image/icone-panier.png" alt="icone de panier">
                 <a href="/utilisateurs/compte"><img class="icone" src="/image/icone-compte.png" alt="icone de compte"></a>
                 <a href="/utilisateurs/connexion" id="connexion"><p>Connexion</p></a>
+            </div>
+                <% } %>
+
+
+        <% if (isAuth==true && Role== "client" ) { %>
+            <div class="icones">
+                <img class="icone" src="/image/icone-loca.png" alt="icone de localisation">
+                <img class="icone" id="panier" src="/image/icone-panier.png" alt="icone de panier">
+                <a href="/utilisateurs/compte"><img class="icone" src="/image/icone-compte.png" alt="icone de compte"></a>
+                <a href="/utilisateurs/connexion" id="connexion"><p>Connexion</p></a>
+
             </div>
                 <% }else if (isAuth==true && Role== "admin" ) { %>
                     <div class="icones">
@@ -77,18 +88,10 @@
                     </div>                        
                 <% }else if (isAuth==true && Role== "agent" ) { %>
                     <div class="icones">
-                    <a href="ajoutproduit.ejs" class="texthead">Liste des produits</a>
+                    <a href="ajoutproduit" class="texthead">Liste des produits</a>
                     <a href="/utilisateurs/compte"><img class="icone" src="/image/icone-compte.png" alt="icone de compte"></a>
                     <a href="/utilisateurs/connexion" id="connexion"><p>Connexion</p></a>                        <% } %>
-                    </div> -->
+                    </div>
 
-
-                    <div class="icones">
-                        <img class="icone" src="/image/icone-loca.png" alt="icone de localisation">
-                        <img class="icone" id="panier" src="/image/icone-panier.png" alt="icone de panier">
-                        <a href="/utilisateurs/compte"><img class="icone" src="/image/icone-compte.png" alt="icone de compte"></a>
-                        <a href="/utilisateurs/connexion" id="connexion"><p>Connexion</p></a>
-                        <a href="/inscription">Inscription</a>
-                    </div> 
 
     </header>

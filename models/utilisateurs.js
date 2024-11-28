@@ -48,5 +48,7 @@ async function modifnom(nom, login) {
     });
 }
 
-module.exports = { getUserById, checklogin, modifnom };
+
+
+module.exports = { getUserById, checklogin, modifnom};
 
