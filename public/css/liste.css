@@ -33,10 +33,21 @@
     margin: 30px 20px 30px 20px;
 }
 
-.element{
-    padding: 10px 40px 10px 40px;
-}
 
 hr{
     width: 95%;
+}
+
+#bouton{
+    padding: 5px;
+}
+
+#ajouterprod{
+    display: flex;
+    justify-content: center;
+    margin: 50px 0px 30px 0px;
+}
+
+button{
+    font-family: 'Bahnschrift';
 }
