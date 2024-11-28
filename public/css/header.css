@@ -71,7 +71,7 @@ header img:hover {
     margin-bottom: 3px;
 }
 
-#connexion{
+.connexion{
     font-family: 'Bahnschrift';
     color: black;
     font-size: 1rem;
