@@ -3,11 +3,12 @@ const app = express();
 const session = require('express-session');
 const moment = require('moment');
 const controllerUtilisateur = require('./controllers/utilisateurs.js')
-const controllerAjouter = require('./controllers/ajouter.js')
 const utilisateurs = require("./models/utilisateurs.js")
 const prod = require("./models/produits.js")
+const inscriptionRouter = require("./controllers/inscription.js");
 
 
+app.use("/inscription", inscriptionRouter);
 
 app.set('view engine', 'ejs');
 
@@ -50,8 +51,6 @@ app.use(function(req,res,next){
 
 
 app.use("/utilisateurs", controllerUtilisateur)
-app.use("/ajouter", controllerAjouter)
-
 
 //extraction des données du formulaire
 
@@ -119,10 +118,6 @@ app.get('/', async function (req, res) {
         res.status(500).send('Erreur lors de la récupération des données');
     }
 });
-
-
-
-
 
 
 app.use((req, res) => {

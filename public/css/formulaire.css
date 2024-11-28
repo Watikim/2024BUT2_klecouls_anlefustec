@@ -1,53 +1,56 @@
 
-
 .form-container {
-    width: 340px;
-    height: 420px;
+    width: 360px;
+    max-width: 100%;
     border-radius: 0.75rem;
     background-color: #C3C637;
     padding: 2rem;
     color: #000;
-    margin: 120px 0px 0px 560px;
+    margin: 120px auto;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .title {
-    font-family: 'Bahnschrift';
+    font-family: 'Bahnschrift', sans-serif;
     text-align: center;
-    font-size: 2rem;
-    line-height: 2rem;
+    font-size: 1.75rem;
     font-weight: 700;
+    color: #000;
+    margin-bottom: 1.5rem;
 }
 
 .form {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
 }
 
 .input-group {
-    margin-top: 0.25rem;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    padding-top: 20px;
+    margin-bottom: 1rem; 
 }
 
 .input-group label {
-    font-family: 'Bahnschrift';
+    font-family: 'Bahnschrift', sans-serif;
     display: block;
-    color: #000000;
-    margin-bottom: 4px;
+    font-size: 0.9rem;
+    color: #000;
+    margin-bottom: 0.5rem;
 }
 
 .input-group input {
     width: 100%;
     border-radius: 0.375rem;
     border: 1px solid #a1a328;
-    outline: 0;
-    background-color: #a1a328;
-    padding: 0.75rem 1rem;
+    background-color: #f4f4f4; 
+    padding: 0.75rem;
     color: #000;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
 .input-group input:focus {
     border-color: #84861c;
+    background-color: #fff;
 }
 
 .sign {
@@ -55,15 +58,17 @@
     width: 100%;
     background-color: #a1a328;
     padding: 0.75rem;
-    margin-top: 60px;
+    margin-top: 1.5rem;
     text-align: center;
-    color: rgba(17, 24, 39, 1);
+    color: #fff;
     border: none;
     border-radius: 0.375rem;
     font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.sign:hover{
+.sign:hover {
     background-color: #84861c;
-
 }
