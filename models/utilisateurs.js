@@ -48,14 +48,14 @@ async function modifnom(nom, login) {
     });
 }
 
-async function addUtilisateur(nouv_login, nouv_password, nouv_nom, nouv_prenom, nouv_ddn, nouv_email) {
+async function addUtilisateur(nouv_login, nouv_password, nouv_nom, nouv_prenom, nouv_ddn, nouv_email, type_utilisateur) {
     const sql = `
-      INSERT INTO utilisateur (login, password, nom, prenom, ddn, email)
-      VALUES (?, ?, ?, ?, ?, ?)
+      INSERT INTO utilisateur (login, password, nom, prenom, ddn, email, type_utilisateur)
+      VALUES (?, ?, ?, ?, ?, ?, "client")
     `;
     
     return new Promise((resolve, reject) => {
-        database.query(sql, [nouv_login, nouv_password, nouv_nom, nouv_prenom, nouv_ddn, nouv_email], (err, results) => {
+        database.query(sql, [nouv_login, nouv_password, nouv_nom, nouv_prenom, nouv_ddn, nouv_email, type_utilisateur], (err, results) => {
             if (err) {
                 return reject(err);
             }
@@ -64,6 +64,21 @@ async function addUtilisateur(nouv_login, nouv_password, nouv_nom, nouv_prenom, 
     });
 }
 
+async function addAgent(nouv_login, nouv_password, nouv_nom, nouv_prenom, nouv_ddn, nouv_email, type_utilisateur) {
+    const sql = `
+      INSERT INTO utilisateur (login, password, nom, prenom, ddn, email, type_utilisateur)
+      VALUES (?, ?, ?, ?, ?, ?, "agent")
+    `;
 
-module.exports = { getUserById, checklogin, modifnom, addUtilisateur};
+    return new Promise((resolve, reject) => {
+        database.query(sql, [nouv_login, nouv_password, nouv_nom, nouv_prenom, nouv_ddn, nouv_email, type_utilisateur], (err, results) => {
+            if (err) {
+                return reject(err);
+            }
+            resolve(results);
+        });
+    });
+}
+
+module.exports = { getUserById, checklogin, modifnom, addUtilisateur, addAgent};
 
