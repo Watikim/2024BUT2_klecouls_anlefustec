@@ -135,6 +135,9 @@ app.get('/produit/:id', async function(req, res) {
     res.render('produit', { resultat });
 });
 
+
+
+
 app.use((req, res) => {
     res.status(404).render("404");
 });
