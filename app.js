@@ -1,14 +1,17 @@
 const express = require('express');
 const app = express();
 const session = require('express-session');
-const moment = require('moment');
 const controllerUtilisateur = require('./controllers/utilisateurs.js');
 const utilisateurs = require("./models/utilisateurs.js");
 const prod = require("./models/produits.js");
 const inscriptionRouter = require("./controllers/inscription.js");
+const ajouterRouter = require("./controllers/inscription.js");
 const { addProduct } = require("./models/produits.js"); // Correction de l'importation
 
+
 app.use("/inscription", inscriptionRouter);
+app.use("/ajouter", ajouterRouter);
+
 
 app.set('view engine', 'ejs');
 
@@ -21,6 +24,8 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
+
+app.use("/utilisateurs", controllerUtilisateur);
 
 app.use(function(req, res, next) {
     if (req.session.userId) {
@@ -54,15 +59,7 @@ app.post("/ajt", (req, res) => {
     let prix = req.body.prix;
     let image = req.body.image;
 
-    console.log("Données du formulaire reçues :", {
-        nom_article,
-        type,
-        description,
-        marque,
-        model,
-        prix,
-        image
-    });
+
 
     addProduct(nom_article, type, description, marque, model, prix, image)
         .then(() => {
@@ -75,10 +72,8 @@ app.post("/ajt", (req, res) => {
         });
 });
 
-app.use("/utilisateurs", controllerUtilisateur);
 
-// Extraction des données du formulaire
-app.use(express.urlencoded({ extended: false }));
+
 
 app.get('/catalogue', async (req, res) => {
     const produits = await prod.getAllProducts();
