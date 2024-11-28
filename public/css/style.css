@@ -1,5 +1,20 @@
 /* CATEGORIES DE MACHINES */
 
+.bienvenue{
+    background-color: #B4CBDC;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Bahnschrift';
+    font-size: 3rem;
+    color: rgb(0, 0, 0);
+    margin-top: 75px;
+    margin-bottom: 75px;
+    line-height: 2;
+}
+
 #vieux {
     width: 100%;
 }

@@ -136,32 +136,113 @@ button {
 	color: #999fa6;
 }
 
-/* Dates sélectionnées et plages */
+
 .range-start, .range-end {
-    background-color: #008ffd; /* Couleur principale */
-    color: #ffffff; /* Texte en blanc */
-    border-radius: 50%; /* Arrondi complet */
+    background-color: #008ffd; 
+    color: #ffffff;
+    border-radius: 50%; 
 }
 
 .in-range {
-    background-color: #cbe8ff; /* Couleur secondaire */
-    color: #008ffd; /* Texte principal */
+    background-color: #cbe8ff; 
+    color: #008ffd; 
 }
 
-/* Jour actuel */
 .current-day {
-    background-color: #008ffd; /* Couleur principale */
-    color: #ffffff; /* Texte en blanc */
-    border-color: #008ffd; /* Bordure de la même couleur */
+    background-color: #008ffd; 
+    color: #ffffff;
+    border-color: #008ffd;
 }
 
 .current-day:hover {
-    background-color: #cbe8ff; /* Accentuation en hover */
-    color: #008ffd; /* Texte principal */
+    background-color: #cbe8ff;
+    color: #008ffd; 
 }
 
 .selected {
-    background-color: #008ffd; /* Couleur de fond pour une date sélectionnée */
-    color: #ffffff; /* Couleur du texte */
-    border-radius: 50%; /* Rendre l'apparence plus marquée */
+    background-color: #008ffd;
+    color: #ffffff; 
+    border-radius: 50%; 
+}
+
+.date.start-loue {
+    background-color: #f5c6cb; 
+    color: #721c24;
+    border: 2px solid #f5a6a9;
+}
+
+.date.end-loue {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 2px dashed #f5a6a9;
+}
+
+.start-loue {
+    background-color: red;
+    color: white;
+    pointer-events: none; 
+}
+
+.end-loue {
+    background-color: darkred;
+    color: white;
+    pointer-events: none; 
+}
+
+.in-loue {
+    background-color: lightcoral;
+    color: white;
+    pointer-events: none; 
+}
+
+.price-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 350px;
+    margin: 20px auto;
+    transition: all 0.3s ease-in-out;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #000000;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+#price {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-top: 0;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#back-home-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: #008ffd;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#back-home-btn:hover {
+    background-color: #006bbf;
+    transform: scale(1.05);
 }

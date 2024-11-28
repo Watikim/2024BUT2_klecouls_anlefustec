@@ -27,12 +27,6 @@
     <header>
 
         <div id="menu-deroulant">
-            <label class="burger" for="burger">
-                <input type="checkbox" id="burger">
-                <span></span>
-                <span></span>
-                <span></span>
-              </label>
 
               
         <img id="locfit-logo" src="/image/locfit.png" />
@@ -67,10 +61,33 @@
             </form>
         </div>
 
-        <div id="icones">
-            <img class="icone" src="/image/icone-loca.png" alt="icone de localisation">
-            <img class="icone" id="panier" src="/image/icone-panier.png" alt="icone de panier">
-            <a href="/utilisateurs/compte"><img class="icone" src="/image/icone-compte.png" alt="icone de compte"></a>
-            <a href="/utilisateurs/connexion" id="connexion"><p>Connexion</p></a>
-        </div>
+
+        <!--<% if (isAuth==true && Role== "client" ) { %>
+            <div class="icones">
+                <img class="icone" src="/image/icone-loca.png" alt="icone de localisation">
+                <img class="icone" id="panier" src="/image/icone-panier.png" alt="icone de panier">
+                <a href="/utilisateurs/compte"><img class="icone" src="/image/icone-compte.png" alt="icone de compte"></a>
+                <a href="/utilisateurs/connexion" id="connexion"><p>Connexion</p></a>
+            </div>
+                <% }else if (isAuth==true && Role== "admin" ) { %>
+                    <div class="icones">
+                        <a href="#" class="texthead">Ajouter un agent</a>
+                        <a href="/utilisateurs/compte"><img class="icone" src="/image/icone-compte.png" alt="icone de compte"></a>
+                        <a href="/utilisateurs/connexion" id="connexion"><p>Connexion</p></a>
+                    </div>                        
+                <% }else if (isAuth==true && Role== "agent" ) { %>
+                    <div class="icones">
+                    <a href="ajoutproduit.ejs" class="texthead">Liste des produits</a>
+                    <a href="/utilisateurs/compte"><img class="icone" src="/image/icone-compte.png" alt="icone de compte"></a>
+                    <a href="/utilisateurs/connexion" id="connexion"><p>Connexion</p></a>                        <% } %>
+                    </div> -->
+
+
+                    <div class="icones">
+                        <img class="icone" src="/image/icone-loca.png" alt="icone de localisation">
+                        <img class="icone" id="panier" src="/image/icone-panier.png" alt="icone de panier">
+                        <a href="/utilisateurs/compte"><img class="icone" src="/image/icone-compte.png" alt="icone de compte"></a>
+                        <a href="/utilisateurs/connexion" id="connexion"><p>Connexion</p></a>
+                    </div>
+
     </header>

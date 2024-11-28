@@ -88,9 +88,9 @@
         <section id="imagesphares">
             <% for (i=0; i<produits.length; i++){ %>
             <article class="articlesphares">
-                <img id="tapis-course" src="/image/tapis-de-course.jpg" alt="un tapis de course">
+                <img id="tapis-course" src="/image/<%= produits[i].image %>" alt="un tapis de course">
 
-                    <p><%= produits[i].type %></p>
+                    <p><a href="/produit/<%= produits[i].id %>"><%= produits[i].nom %></a></p>
             
                 <div class="etoiles">
                     <span class="fa fa-star checked"></span>
