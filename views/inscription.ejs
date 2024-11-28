@@ -1,31 +1,32 @@
 <link rel="stylesheet" href="./css/formulaire.css">
-
+<%= error %>
 <div class="form-container">
 	<p class="title">S'inscrire</p>
-	<form class="form" action="/inscription" method="POST">
+
+	<form class="form" action="/nouvutilisateur" method="POST">
 		<div class="input-group">
-			<label for="username">Nom d'utilisateur</label>
-			<input type="text" name="username" id="username" required>
+			<label for="nouv_login">Login</label>
+			<input type="text" name="nouv_login" id="nouv_login" required>
 		</div>
 		<div class="input-group">
-			<label for="password">Mot de passe</label>
-			<input type="password" name="password" id="password" required>
+			<label for="nouv_password">Mot de passe</label>
+			<input type="password" name="nouv_password" id="nouv_password" required>
 		</div>
 		<div class="input-group">
-			<label for="nom">Nom</label>
-			<input type="text" name="nom" id="nom" required>
+			<label for="nouv_nom">Nom</label>
+			<input type="text" name="nouv_nom" id="nouv_nom" required>
 		</div>
 		<div class="input-group">
-			<label for="prenom">Prénom</label>
-			<input type="text" name="prenom" id="prenom" required>
+			<label for="nouv_prenom">Prénom</label>
+			<input type="text" name="nouv_prenom" id="nouv_prenom" required>
 		</div>
 		<div class="input-group">
-			<label for="ddn">Date de naissance</label>
-			<input type="date" name="ddn" id="ddn" required>
+			<label for="nouv_ddn">Date de naissance</label>
+			<input type="date" name="nouv_ddn" id="nouv_ddn" required>
 		</div>
 		<div class="input-group">
-			<label for="email">Email</label>
-			<input type="email" name="email" id="email" required>
+			<label for="nouv_email">Email</label>
+			<input type="email" name="nouv_email" id="nouv_email" required>
 		</div>
 		<button class="sign" type="submit">Créer un compte</button>
 	</form>

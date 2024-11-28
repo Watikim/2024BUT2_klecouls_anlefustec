@@ -43,14 +43,14 @@ async function getProductWithDates(id) {
     });
 }
 
-async function addProduct(nom_article, type, description, marque, model, prix, image) {
+async function addProduct(nom_article, type, description, marque, model, prix, image, etat) {
     const sql = `
-      INSERT INTO produit (nom, type, description, marque, modele, prix_location, image)
-      VALUES (?, ?, ?, ?, ?, ?, ?)
+      INSERT INTO produit (nom, type, description, marque, modele, prix_location, image, etat)
+      VALUES (?, ?, ?, ?, ?, ?, ?, "disponible")
     `;
     
     return new Promise((resolve, reject) => {
-        database.query(sql, [nom_article, type, description, marque, model, prix, image], (err, results) => {
+        database.query(sql, [nom_article, type, description, marque, model, prix, image, etat], (err, results) => {
             if (err) {
                 return reject(err);
             }
@@ -60,4 +60,6 @@ async function addProduct(nom_article, type, description, marque, model, prix, i
 }
 
 
-module.exports = { addProduct, getAllProducts, getProductById, getProductWithDates };
+
+
+module.exports = { addProduct, getAllProducts, getProductById, getProductWithDates};
