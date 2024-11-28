@@ -3,6 +3,7 @@ const app = express();
 const session = require('express-session');
 const moment = require('moment');
 const controllerUtilisateur = require('./controllers/utilisateurs.js')
+const controllerAjouter = require('./controllers/ajouter.js')
 const utilisateurs = require("./models/utilisateurs.js")
 const prod = require("./models/produits.js")
 
@@ -49,6 +50,8 @@ app.use(function(req,res,next){
 
 
 app.use("/utilisateurs", controllerUtilisateur)
+app.use("/ajouter", controllerAjouter)
+
 
 //extraction des données du formulaire
 

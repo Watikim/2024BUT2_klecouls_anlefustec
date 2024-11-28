@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const md5 = require('md5');
-const utilisateurs = require("../models/utilisateurs.js")
+const ajouter = require("../models/produits.js")
+const { ajoutproduit } = require("../models/produits.js");
+console.log(ajoutproduit);
 
 router.post("/ajt", (req, res)=>{
 
@@ -13,7 +15,8 @@ router.post("/ajt", (req, res)=>{
   let prix = req.body.prix
   let image = req.body.image
 
-    
+
+  return ajouter.ajoutproduit(nom_article, type, description, marque, model, prix, image);
 })
 
 module.exports = router;

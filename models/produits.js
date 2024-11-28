@@ -33,6 +33,25 @@ async function getProductById(id) {
 }
 
 
+
+async function ajoutproduit(nom, type, description, marque, model, prix, image) {
+    const sql = "INSERT INTO produit (nom, type, description, marque, model, prix, image) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+    return new Promise((resolve, reject) => {
+        database.query(sql, [nom, type, description, marque, model, prix, image], (err, results) => {
+            if (err) {
+                return reject(err); 
+            }
+            resolve(results); 
+        });
+    });
+}
+
+module.exports = { ajoutproduit };
+
+
+
+
 // récupère infos dateloué 
 async function getProductWithDates(id) {
     const sql = `
