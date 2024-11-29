@@ -68,6 +68,19 @@
 - Difficultés pour récupéré les ID des produits dans l'URL
 - 'IsAuth is not defined' donc impossible d'accéder à certaines pages
 
+##### Difficultées rencontrées
+
+- Difficultée à mettre les éléments dans la base de donnée
+- Difficultée avec les controleurs : le codde fonctionne dans app.js, mais pas dans le controleur 
+- "is Auth is not defined" donc pas possible d'acceder à certaine pages, il est impossible de voir si la modification du compte fonctionne
+
+##### Solutions
+
+- Recherches sur internet
+- Aide du groupe
+- Aide du prof 
+
+
 ##### Solutions 
 
 - Documentation sur internet, forums, cours sur moodle
