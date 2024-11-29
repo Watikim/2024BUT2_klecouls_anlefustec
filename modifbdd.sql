@@ -1,4 +1,4 @@
-TRUNCATE TABLE produit;
+/*TRUNCATE TABLE produit;    Pour remettre les ID à 0 - ignorer */
 
 
 
@@ -42,5 +42,9 @@ SET
     date_debut_loue = DATE_ADD('2024-11-01', INTERVAL FLOOR(RAND() * 92) DAY),
     date_fin_loue = DATE_ADD(date_debut_loue, INTERVAL FLOOR(RAND() * 15 + 1) DAY)
 WHERE etat = 'loué';
+
+
+
+
 
 
