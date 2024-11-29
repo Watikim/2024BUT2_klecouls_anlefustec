@@ -45,13 +45,37 @@
 
 ### LE TRAVAIL DE CHACUN
 
-*Anais*
+#### Anais
 - La moitié des fichiers HTML / CSS
 - La fonctionnalité de connexion
 - Les fonctions de récupération des informations des produits
 - 
-*Kimberley*
+
+#### Kimberley
+
+##### Fonctionnalitées
 - L'autre moitié du HTML / CSS
+- En tant qu'administrateur Je dois pouvoir créer un compte pour un agent, cette création est indépendante de l'inscription d'un client.
+- En tant qu'agent Je dois pouvoir créer et ajouter un nouveau produit.
+- En tant que client Je dois pouvoir m'inscrire et me créer un compte sur le site. Un utilisateur doit être majeur pour s'inscrire
+- En tant que client Je dois pouvoir modifier mon nom, prénom, date de naissance, mot de passe et adresse mail, mais pas mon login, il est définitif.
+
+##### Difficultées rencontrées
+
+- Difficultée à mettre les éléments dans la base de donnée
+- Difficultée avec les controleurs : le codde fonctionne dans app.js, mais pas dans le controleur 
+- "is Auth is not defined" donc pas possible d'acceder à certaine pages, il est impossible de voir si la modification du compte fonctionne
+
+##### Solutions
+
+- Recherches sur internet
+- Aide du groupe
+- Aide du prof 
+
+
+
+
+
 
 
 --------------------------------------------------------------------------------------
