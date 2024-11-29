@@ -66,29 +66,29 @@
                 </section>
 
                 <section id="compte-infos" class="compte">
-                    <form class="js-edit">
+                    <form class="js-edit" action="/modifcompte">
                         <article class="groupe-info">
                             <h3>Nom : </h3>
-                            <input type="text" name="nom" value="<%= nom %>" disabled>
+                            <input type="text" name="modif_nom" value="<%= nom %>" disabled>
                         </article>
                         <article class="groupe-info">
                             <h3>Prénom : </h3>
-                            <input type="text" name="prenom" value="<%= prenom %>" disabled>
+                            <input type="text" name="modif_prenom" value="<%= prenom %>" disabled>
                         </article>
                         <article class="groupe-info">
                             <h3>Mot de passe : </h3>
-                            <input type="text" name="ddn" value="" disabled>
+                            <input type="text" name="modif_password" value="" disabled>
                         </article>
                         <article class="groupe-info">
                             <h3>Email : </h3>
-                            <input type="text" name="ddn" value="<%= email %>" disabled>
+                            <input type="text" name="modif_email" value="<%= email %>" disabled>
                         </article>
                         <article class="groupe-info">
                             <h3>Date de naissance : </h3>
-                            <input type="text" name="ddn" value="<%= ddn %>" disabled>
+                            <input type="text" name="modif_ddn" value="<%= ddn %>" disabled>
                         </article>
                         <button class="update-btn">Modifier mes informations</button>
-                        <button class="delete-btn">Delete</button>
+                        <button class="delete-btn" type="submit">Valider</button>
                     </form>
 
 
