@@ -50,6 +50,9 @@
 - La fonctionnalité de connexion
 - Les fonctions de récupération des informations des produits
 - 
+*Kimberley*
+- L'autre moitié du HTML / CSS
+
 
 --------------------------------------------------------------------------------------
 
