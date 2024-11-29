@@ -1,4 +1,4 @@
-/*TRUNCATE TABLE produit;    Pour remettre les ID à 0 - ignorer */
+/*TRUNCATE TABLE produit;    Pour remettre les ID à 0 */
 
 
 
