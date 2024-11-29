@@ -32,18 +32,18 @@ async function checklogin(login) {
     });
 }
 
-async function modifnom(nom, login) {
-    
-    sql = "UPDATE utilisateur SET nom = ? WHERE login = ?";
-    
-    return new Promise((resolve, reject) => {
-        database.query(sql, [nom, login],  (err, results) => {
+async function modifUtilisateur(modif_password, modif_nom, modif_prenom, modif_ddn, modif_email) {
+    const sql = `
+      UPDATE utilisateur ( password, nom, prenom, ddn, email)
+      VALUES ( ?, ?, ?, ?, ?) WHERE login="?";
+    `;
 
+    return new Promise((resolve, reject) => {
+        database.query(sql, [modif_password, modif_nom, modif_prenom, modif_ddn, modif_email], (err, results) => {
             if (err) {
                 return reject(err);
             }
             resolve(results);
-
         });
     });
 }
@@ -80,5 +80,5 @@ async function addAgent(nouv_login, nouv_password, nouv_nom, nouv_prenom, nouv_d
     });
 }
 
-module.exports = { getUserById, checklogin, modifnom, addUtilisateur, addAgent};
+module.exports = { modifUtilisateur, getUserById, checklogin, addUtilisateur, addAgent};
 

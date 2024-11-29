@@ -9,13 +9,14 @@ const inscriptionRouter = require("./controllers/inscription.js");
 const { addProduct } = require("./models/produits.js");
 const { addUtilisateur } = require("./models/utilisateurs.js");
 const { addAgent } = require("./models/utilisateurs.js"); // Correction de l'importation
+const { modifUtilisateur } = require("./models/utilisateurs.js");
 
-
+app.set('view engine', 'ejs');
 app.use("/inscription", inscriptionRouter);
 
 
 
-app.set('view engine', 'ejs');
+
 
 app.use(express.static('public'));
 
@@ -25,7 +26,7 @@ app.use(session({
     secret: 'oui',
     resave: false,
     saveUninitialized: false
-}));
+}))
 
 app.use("/utilisateurs", controllerUtilisateur);
 
@@ -38,8 +39,9 @@ app.use(function (req, res, next) {
         res.locals.nom = req.session.nom;
         res.locals.ddn = req.session.ddn;
         res.locals.login = req.session.login;
-        res.locals.email = req.session.email;
-    } else {
+        res.locals.email = req.session.email
+    } 
+    else {
         res.locals.isAuth = false;
         res.locals.id = null;
         res.locals.prenom = "";
@@ -47,10 +49,10 @@ app.use(function (req, res, next) {
         res.locals.nom = "";
         res.locals.ddn = "";
         res.locals.login = "";
-        res.locals.email = "";
+        res.locals.email = ""
     }
     next();
-});
+})
 
 app.post("/ajt", (req, res) => {
     let nom_article = req.body.nom_article;
@@ -156,6 +158,39 @@ app.post("/nouvagent", (req, res) => {
     }
 
 }
+);
+
+
+app.post("/modifcompte", (req, res) => {
+    
+    let modif_password = req.body.modif_password;
+    let modif_prenom = req.body.modif_prenom;
+    let modif_nom = req.body.modif_nom;
+    let modif_ddn = req.body.nouv_ddn;
+    let modif_email = req.body.nouv_email;
+
+
+
+
+
+
+    nouv_password = md5(nouv_password);
+
+
+
+   
+        modifUtilisateur(modif_login, modif_password, modif_nom, modif_prenom, modif_ddn, modif_email)
+            .then(() => {
+                console.log("Utilisateur modifié avec succès");
+                res.redirect("/");
+            }).catch((err) => {
+                console.error("Erreur lors de la modification de l'utilisateur :", err);
+                res.status(500).send("Erreur lors de la modification de l'utilisateur");
+            });
+    }
+   
+
+
 );
 
 
