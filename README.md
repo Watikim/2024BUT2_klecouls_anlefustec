@@ -45,7 +45,7 @@
 
 ### LE TRAVAIL DE CHACUN
 
-#### Anais
+#### Anaïs
 
 ##### Fonctionnalités assignées
 
@@ -59,14 +59,15 @@
 
 - Difficultés dans la récupération des données
 - Difficultés dans la conversion des dates
-- Difficultés dans la création du formulaire et de pouvoir modifier les données dans la base de données (*ex : changer le nom*)
+- Difficultés dans la création du formulaire et de pouvoir modifier les données dans la base de données (*ex : changer le nom...*)
 - Difficultés pour récupéré les ID des produits dans l'URL
+- 'IsAuth is not defined' donc impossible d'accéder à certaines pages
 
 ##### Solutions 
 
 - Documentation sur internet, forums, cours sur moodle
 - Aide du professeur
-
+- Aide du groupe
 
 
 *Kimberley*
