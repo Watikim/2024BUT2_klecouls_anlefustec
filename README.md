@@ -49,7 +49,10 @@
 - La moitié des fichiers HTML / CSS
 - La fonctionnalité de connexion
 - Les fonctions de récupération des informations des produits
-- 
+- Les fonctions de récupération des informations des utilisateurs
+
+fezfezf
+fuiz
 
 --------------------------------------------------------------------------------------
 
