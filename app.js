@@ -17,7 +17,6 @@ app.use("/inscription", inscriptionRouter);
 
 
 
-
 app.use(express.static('public'));
 
 app.use(express.urlencoded({ extended: false }));
