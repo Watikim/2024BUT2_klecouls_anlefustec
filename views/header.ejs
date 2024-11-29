@@ -62,16 +62,6 @@
         </div>
 
 
-        <% if (isAuth==false) { %>
-            <div class="icones">
-                <img class="icone" src="/image/icone-loca.png" alt="icone de localisation">
-                <img class="icone" id="panier" src="/image/icone-panier.png" alt="icone de panier">
-                <a href="/utilisateurs/compte"><img class="icone" src="/image/icone-compte.png" alt="icone de compte"></a>
-                <a href="/utilisateurs/connexion" class="connexion"><p>Connexion</p></a>
-                <a class="connexion" href="/inscription"><p>Inscription</p></a>
-            </div>
-                <% } %>
-
 
         <% if (isAuth==true && Role== "client" ) { %>
             <div class="icones">
@@ -93,6 +83,13 @@
                     <a href="/utilisateurs/compte"><img class="icone" src="/image/icone-compte.png" alt="icone de compte"></a>
                     <a href="/utilisateurs/connexion" class="connexion"><p>Connexion</p></a>                        <% } %>
                     </div>
+
+                    <!--<img class="icone" src="/image/icone-loca.png" alt="icone de localisation">
+                    <img class="icone" id="panier" src="/image/icone-panier.png" alt="icone de panier">
+                    <a href="/utilisateurs/compte"><img class="icone" src="/image/icone-compte.png" alt="icone de compte"></a>
+                    <a href="/utilisateurs/connexion" class="connexion"><p>Connexion</p></a>
+                    <a href="#" class="texthead">Ajouter un agent</a>
+                    <a href="ajoutproduit" class="texthead">Liste des produits</a>-->
 
 
     </header>
