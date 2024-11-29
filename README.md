@@ -54,11 +54,6 @@
 - En tant que client, je dois pouvoir supprimer mon compte. Si c'est un client, il ne peut supprimer son compte que s'il n'a pas de réservation ou de location en cours. Si c'est un agent, il ne peut pas supprimer son compte.
 - En tant que client, je dois pouvoir modifier mon nom, prénom, date de naissance, mot de passe et adresse mail, mais pas mon login, il est définitif.
 - Les fonctions de récupération des informations des produits
-- 
-
-#### Kimberley
-
-##### Fonctionnalitées
 
 ##### Difficultés rencontrées 😡
 
@@ -67,6 +62,15 @@
 - Difficultés dans la création du formulaire et de pouvoir modifier les données dans la base de données (*ex : changer le nom...*)
 - Difficultés pour récupéré les ID des produits dans l'URL
 - 'IsAuth is not defined' donc impossible d'accéder à certaines pages
+
+##### Solutions 
+
+- Documentation sur internet, forums, cours sur moodle
+- Aide du professeur 😜
+- Aide du groupe
+
+
+#### Kimberley
 
 ##### Difficultées rencontrées
 
@@ -80,12 +84,6 @@
 - Aide du groupe
 - Aide du prof 
 
-
-##### Solutions 
-
-- Documentation sur internet, forums, cours sur moodle
-- Aide du professeur 😜
-- Aide du groupe
 
 
 --------------------------------------------------------------------------------------
