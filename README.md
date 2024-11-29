@@ -60,7 +60,7 @@
 
 ##### Fonctionnalitées
 
-##### Difficultés rencontrées
+##### Difficultés rencontrées 😡
 
 - Difficultés dans la récupération des données
 - Difficultés dans la conversion des dates
@@ -71,7 +71,7 @@
 ##### Solutions 
 
 - Documentation sur internet, forums, cours sur moodle
-- Aide du professeur
+- Aide du professeur 😜
 - Aide du groupe
 
 
@@ -109,7 +109,7 @@ MD5
 
 --------------------------------------------------------------------------------------
 
-### INFORMATIONS COMPLÉMENTAIRES TRES IMPORTANTES !!!!
+### INFORMATIONS COMPLÉMENTAIRES TRES IMPORTANTES
 
 Il faut modifier la base de données : regarder dans le ficher 'modifbdd.sql' et executer les requêtes.
 
